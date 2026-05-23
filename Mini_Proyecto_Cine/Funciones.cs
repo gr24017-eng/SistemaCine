@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Mini_Proyecto_Cine
 {
-    public partial class FrmAsientos : Form
+    public partial class Funciones : Form
     {
-        public FrmAsientos()
+        public Funciones()
         {
             InitializeComponent();
         }

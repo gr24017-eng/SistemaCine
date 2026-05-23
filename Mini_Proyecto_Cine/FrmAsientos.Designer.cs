@@ -184,7 +184,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(617, 366);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint_1;
             // 
             // btnA1
             // 
@@ -203,7 +202,6 @@
             label1.Size = new Size(15, 15);
             label1.TabIndex = 1;
             label1.Text = "A";
-            label1.Click += label1_Click;
             // 
             // panel2
             // 
@@ -528,7 +526,6 @@
             btnD7.TabIndex = 42;
             btnD7.Text = "D7";
             btnD7.UseVisualStyleBackColor = true;
-            btnD7.Click += button34_Click;
             // 
             // btnD6
             // 
