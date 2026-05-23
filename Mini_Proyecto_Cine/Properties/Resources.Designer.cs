@@ -63,6 +63,16 @@ namespace Mini_Proyecto_Cine.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap asiento_de_cine {
+            get {
+                object obj = ResourceManager.GetObject("asiento-de-cine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap marca_de_verificacion {
             get {
                 object obj = ResourceManager.GetObject("marca-de-verificacion", resourceCulture);
