@@ -214,7 +214,7 @@
             label1.Size = new Size(15, 15);
             label1.TabIndex = 1;
             label1.Text = "A";
-            label1.Click += label1_Click;
+          
             // 
             // btnF8
             // 
@@ -801,7 +801,7 @@
             label1.Size = new Size(15, 15);
             label1.TabIndex = 1;
             label1.Text = "A";
-            label1.Click += label1_Click;
+          
             // 
             // btnA1
             // 
