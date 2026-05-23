@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsientos));
             panel1 = new Panel();
             btnF10 = new Button();
-            btnF9 = new Button();
             btnF8 = new Button();
             btnF7 = new Button();
             btnF6 = new Button();
@@ -107,14 +106,14 @@
             label10 = new Label();
             lblCantAsientos = new Label();
             panel4 = new Panel();
-            label8 = new Label();
-            label9 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            panel5 = new Panel();
+            pictureBox1 = new PictureBox();
             panel6 = new Panel();
             panel7 = new Panel();
-            pictureBox1 = new PictureBox();
+            panel5 = new Panel();
+            label12 = new Label();
+            label11 = new Label();
+            label9 = new Label();
+            label8 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -126,7 +125,6 @@
             // panel1
             // 
             panel1.Controls.Add(btnF10);
-            panel1.Controls.Add(btnF9);
             panel1.Controls.Add(btnF8);
             panel1.Controls.Add(btnF7);
             panel1.Controls.Add(btnF6);
@@ -205,16 +203,6 @@
             btnF10.TabIndex = 67;
             btnF10.Text = "F10";
             btnF10.UseVisualStyleBackColor = true;
-            // 
-            // btnF9
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 91);
-            label1.Name = "label1";
-            label1.Size = new Size(15, 15);
-            label1.TabIndex = 1;
-            label1.Text = "A";
-          
             // 
             // btnF8
             // 
@@ -801,7 +789,6 @@
             label1.Size = new Size(15, 15);
             label1.TabIndex = 1;
             label1.Text = "A";
-          
             // 
             // btnA1
             // 
@@ -903,55 +890,16 @@
             panel4.Size = new Size(963, 51);
             panel4.TabIndex = 4;
             // 
-            // label8
+            // pictureBox1
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(94, 9);
-            label8.Name = "label8";
-            label8.Size = new Size(252, 30);
-            label8.TabIndex = 0;
-            label8.Text = "SELECCIÓN DE ASIENTOS";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(417, 18);
-            label9.Name = "label9";
-            label9.Size = new Size(63, 15);
-            label9.TabIndex = 1;
-            label9.Text = "Disponible";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(520, 18);
-            label11.Name = "label11";
-            label11.Size = new Size(56, 15);
-            label11.TabIndex = 2;
-            label11.Text = "Ocupado";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(608, 18);
-            label12.Name = "label12";
-            label12.Size = new Size(77, 15);
-            label12.TabIndex = 3;
-            label12.Text = "Seleccionado";
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Green;
-            panel5.ForeColor = Color.Green;
-            panel5.Location = new Point(396, 13);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(15, 20);
-            panel5.TabIndex = 4;
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(10, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 45);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // panel6
             // 
@@ -971,16 +919,55 @@
             panel7.Size = new Size(15, 20);
             panel7.TabIndex = 5;
             // 
-            // pictureBox1
+            // panel5
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(55, 45);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            panel5.BackColor = Color.Green;
+            panel5.ForeColor = Color.Green;
+            panel5.Location = new Point(396, 13);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(15, 20);
+            panel5.TabIndex = 4;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(608, 18);
+            label12.Name = "label12";
+            label12.Size = new Size(77, 15);
+            label12.TabIndex = 3;
+            label12.Text = "Seleccionado";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(520, 18);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 15);
+            label11.TabIndex = 2;
+            label11.Text = "Ocupado";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(417, 18);
+            label9.Name = "label9";
+            label9.Size = new Size(63, 15);
+            label9.TabIndex = 1;
+            label9.Text = "Disponible";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(94, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(252, 30);
+            label8.TabIndex = 0;
+            label8.Text = "SELECCIÓN DE ASIENTOS";
             // 
             // FrmAsientos
             // 
@@ -1057,7 +1044,6 @@
         private Label label2;
         private Button btnB1;
         private Button btnF10;
-        private Button btnF9;
         private Button btnF8;
         private Button btnF7;
         private Button btnF6;
