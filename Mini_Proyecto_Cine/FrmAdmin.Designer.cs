@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
             btnCerrar = new Button();
             btnSalas = new Button();
             btnUsuarios = new Button();
@@ -41,10 +42,17 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
-            label2 = new Label();
+            panel2 = new Panel();
+            label3 = new Label();
+            Pelicula = new DataGridViewTextBoxColumn();
+            Sala = new DataGridViewTextBoxColumn();
+            Fecha = new DataGridViewTextBoxColumn();
+            Hora = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -66,6 +74,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(180, 526);
             panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.ActiveCaptionText;
+            label2.Font = new Font("Segoe UI", 18F);
+            label2.ForeColor = Color.FromArgb(192, 0, 0);
+            label2.Location = new Point(113, 50);
+            label2.Name = "label2";
+            label2.Size = new Size(67, 32);
+            label2.TabIndex = 10;
+            label2.Text = "PLUS";
             // 
             // btnCerrar
             // 
@@ -172,29 +192,63 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Pelicula, Sala, Fecha, Hora, Precio });
             dataGridView1.Location = new Point(241, 308);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(736, 184);
             dataGridView1.TabIndex = 1;
             // 
-            // label2
+            // panel2
             // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.ActiveCaptionText;
-            label2.Font = new Font("Segoe UI", 18F);
-            label2.ForeColor = Color.FromArgb(192, 0, 0);
-            label2.Location = new Point(113, 50);
-            label2.Name = "label2";
-            label2.Size = new Size(67, 32);
-            label2.TabIndex = 10;
-            label2.Text = "PLUS";
+            panel2.Controls.Add(label3);
+            panel2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel2.Location = new Point(226, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(471, 244);
+            panel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(43, 13);
+            label3.Name = "label3";
+            label3.Size = new Size(158, 17);
+            label3.TabIndex = 0;
+            label3.Text = "Bienvenido Administrador";
+            // 
+            // Pelicula
+            // 
+            Pelicula.HeaderText = "Pelicula";
+            Pelicula.Name = "Pelicula";
+            // 
+            // Sala
+            // 
+            Sala.HeaderText = "Sala";
+            Sala.Name = "Sala";
+            // 
+            // Fecha
+            // 
+            Fecha.HeaderText = "Fecha";
+            Fecha.Name = "Fecha";
+            // 
+            // Hora
+            // 
+            Hora.HeaderText = "Hora";
+            Hora.Name = "Hora";
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
             // 
             // FrmAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 524);
+            Controls.Add(panel2);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Name = "FrmAdmin";
@@ -203,6 +257,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -222,5 +278,12 @@
         private Button btnPeliculas;
         private DataGridView dataGridView1;
         private Label label2;
+        private Panel panel2;
+        private Label label3;
+        private DataGridViewTextBoxColumn Pelicula;
+        private DataGridViewTextBoxColumn Sala;
+        private DataGridViewTextBoxColumn Fecha;
+        private DataGridViewTextBoxColumn Hora;
+        private DataGridViewTextBoxColumn Precio;
     }
 }

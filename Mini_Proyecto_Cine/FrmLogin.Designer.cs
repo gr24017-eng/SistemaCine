@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             panel1 = new Panel();
-            lblUsuario = new Label();
-            lblContraseña = new Label();
-            label3 = new Label();
-            txtUsuario = new TextBox();
-            txtContrasena = new TextBox();
-            btnIngresar = new Button();
             pictureBox1 = new PictureBox();
+            btnIngresar = new Button();
+            txtContrasena = new TextBox();
+            txtUsuario = new TextBox();
+            label3 = new Label();
+            lblContraseña = new Label();
+            lblUsuario = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -56,57 +56,6 @@
             panel1.Size = new Size(661, 361);
             panel1.TabIndex = 0;
             // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(122, 163);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(47, 15);
-            lblUsuario.TabIndex = 0;
-            lblUsuario.Text = "Usuario";
-            // 
-            // lblContraseña
-            // 
-            lblContraseña.AutoSize = true;
-            lblContraseña.Location = new Point(102, 219);
-            lblContraseña.Name = "lblContraseña";
-            lblContraseña.Size = new Size(67, 15);
-            lblContraseña.TabIndex = 1;
-            lblContraseña.Text = "Contraseña";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(299, 105);
-            label3.Name = "label3";
-            label3.Size = new Size(63, 15);
-            label3.TabIndex = 2;
-            label3.Text = "CINE PLUS";
-            // 
-            // txtUsuario
-            // 
-            txtUsuario.Location = new Point(244, 160);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(141, 23);
-            txtUsuario.TabIndex = 3;
-            // 
-            // txtContrasena
-            // 
-            txtContrasena.Location = new Point(244, 211);
-            txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(141, 23);
-            txtContrasena.TabIndex = 4;
-            txtContrasena.UseSystemPasswordChar = true;
-            // 
-            // btnIngresar
-            // 
-            btnIngresar.Location = new Point(287, 302);
-            btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(75, 23);
-            btnIngresar.TabIndex = 5;
-            btnIngresar.Text = "Ingresar";
-            btnIngresar.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.palomitas_de_maiz;
@@ -117,6 +66,57 @@
             pictureBox1.Size = new Size(100, 76);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            // 
+            // btnIngresar
+            // 
+            btnIngresar.Location = new Point(299, 270);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Size = new Size(75, 23);
+            btnIngresar.TabIndex = 5;
+            btnIngresar.Text = "Ingresar";
+            btnIngresar.UseVisualStyleBackColor = true;
+            // 
+            // txtContrasena
+            // 
+            txtContrasena.Location = new Point(244, 211);
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.Size = new Size(159, 23);
+            txtContrasena.TabIndex = 4;
+            txtContrasena.UseSystemPasswordChar = true;
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(244, 160);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(192, 23);
+            txtUsuario.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(299, 105);
+            label3.Name = "label3";
+            label3.Size = new Size(63, 15);
+            label3.TabIndex = 2;
+            label3.Text = "CINE PLUS";
+            // 
+            // lblContraseña
+            // 
+            lblContraseña.AutoSize = true;
+            lblContraseña.Location = new Point(157, 214);
+            lblContraseña.Name = "lblContraseña";
+            lblContraseña.Size = new Size(67, 15);
+            lblContraseña.TabIndex = 1;
+            lblContraseña.Text = "Contraseña";
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Location = new Point(166, 163);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(47, 15);
+            lblUsuario.TabIndex = 0;
+            lblUsuario.Text = "Usuario";
             // 
             // FrmLogin
             // 
