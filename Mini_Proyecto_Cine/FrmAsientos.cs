@@ -12,10 +12,20 @@ namespace Mini_Proyecto_Cine
 {
     public partial class FrmAsientos : Form
     {
+        // Propiedad para que Ventas pueda leer los asientos elegidos
+        public List<string> AsientosElegidos => asientosSeleccionados;
+        public decimal PrecioUnitario { get; set; } = 0;
         public FrmAsientos()
         {
             InitializeComponent();
+            this.Load += FrmAsientos_Load1;
         }
+
+        private void FrmAsientos_Load1(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ConfigurarSala(int idSala)
         {
             // Primero mostrar todos los botones
@@ -105,6 +115,25 @@ namespace Mini_Proyecto_Cine
                 }
             }
         }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            if (asientosSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Seleccione al menos un asiento.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            asientosSeleccionados.Clear();
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
-    
+
 }

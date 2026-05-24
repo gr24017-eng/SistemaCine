@@ -882,6 +882,7 @@
             btnConfirmar.TabIndex = 1;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnCancelar
             // 
@@ -892,6 +893,7 @@
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // groupBox1
             // 
@@ -1129,6 +1131,7 @@
         private Label label2;
         private Button btnB1;
         private Button btnF10;
+        private Button btnF9;
         private Button btnF8;
         private Button btnF7;
         private Button btnF6;
@@ -1167,6 +1170,5 @@
         private Panel panel7;
         private Panel panel5;
         private PictureBox pictureBox1;
-        private Button btnF9;
     }
 }

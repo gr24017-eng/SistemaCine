@@ -29,12 +29,20 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblPrecio_ventas = new Label();
+            lblHora_ventas = new Label();
+            lblSala_ventas = new Label();
+            cmbFuncion_ventas = new ComboBox();
+            cmbPelicula_ventas = new ComboBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label9 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            txtTotal_ventas = new TextBox();
+            txtSubtotal_ventas = new TextBox();
+            txtIVA_ventas = new TextBox();
             lblTotal = new Label();
             lblIVA = new Label();
             lblSubTotal = new Label();
@@ -42,6 +50,8 @@
             label5 = new Label();
             label10 = new Label();
             groupBox3 = new GroupBox();
+            txtTelefono_ventas = new TextBox();
+            txtNombre_ventas = new TextBox();
             label7 = new Label();
             label8 = new Label();
             groupBox4 = new GroupBox();
@@ -53,16 +63,6 @@
             btnSeleccionarAsientos = new Button();
             btnComprar = new Button();
             btnCancelar = new Button();
-            cmbPelicula_ventas = new ComboBox();
-            cmbFuncion_ventas = new ComboBox();
-            txtNombre_ventas = new TextBox();
-            txtTelefono_ventas = new TextBox();
-            txtIVA_ventas = new TextBox();
-            txtTotal_ventas = new TextBox();
-            txtSubtotal_ventas = new TextBox();
-            lblSala_ventas = new Label();
-            lblHora_ventas = new Label();
-            lblPrecio_ventas = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -91,6 +91,52 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Seleccion de funcion";
+            // 
+            // lblPrecio_ventas
+            // 
+            lblPrecio_ventas.AutoSize = true;
+            lblPrecio_ventas.ForeColor = SystemColors.ControlText;
+            lblPrecio_ventas.Location = new Point(97, 167);
+            lblPrecio_ventas.Name = "lblPrecio_ventas";
+            lblPrecio_ventas.Size = new Size(12, 20);
+            lblPrecio_ventas.TabIndex = 13;
+            lblPrecio_ventas.Text = ".";
+            // 
+            // lblHora_ventas
+            // 
+            lblHora_ventas.AutoSize = true;
+            lblHora_ventas.ForeColor = SystemColors.ControlText;
+            lblHora_ventas.Location = new Point(97, 133);
+            lblHora_ventas.Name = "lblHora_ventas";
+            lblHora_ventas.Size = new Size(12, 20);
+            lblHora_ventas.TabIndex = 12;
+            lblHora_ventas.Text = ".";
+            // 
+            // lblSala_ventas
+            // 
+            lblSala_ventas.AutoSize = true;
+            lblSala_ventas.ForeColor = SystemColors.ControlText;
+            lblSala_ventas.Location = new Point(97, 96);
+            lblSala_ventas.Name = "lblSala_ventas";
+            lblSala_ventas.Size = new Size(12, 20);
+            lblSala_ventas.TabIndex = 11;
+            lblSala_ventas.Text = ".";
+            // 
+            // cmbFuncion_ventas
+            // 
+            cmbFuncion_ventas.FormattingEnabled = true;
+            cmbFuncion_ventas.Location = new Point(97, 58);
+            cmbFuncion_ventas.Name = "cmbFuncion_ventas";
+            cmbFuncion_ventas.Size = new Size(151, 28);
+            cmbFuncion_ventas.TabIndex = 10;
+            // 
+            // cmbPelicula_ventas
+            // 
+            cmbPelicula_ventas.FormattingEnabled = true;
+            cmbPelicula_ventas.Location = new Point(97, 22);
+            cmbPelicula_ventas.Name = "cmbPelicula_ventas";
+            cmbPelicula_ventas.Size = new Size(151, 28);
+            cmbPelicula_ventas.TabIndex = 9;
             // 
             // label4
             // 
@@ -164,6 +210,27 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Resumen de Pago";
             // 
+            // txtTotal_ventas
+            // 
+            txtTotal_ventas.Location = new Point(97, 101);
+            txtTotal_ventas.Name = "txtTotal_ventas";
+            txtTotal_ventas.Size = new Size(125, 27);
+            txtTotal_ventas.TabIndex = 11;
+            // 
+            // txtSubtotal_ventas
+            // 
+            txtSubtotal_ventas.Location = new Point(97, 22);
+            txtSubtotal_ventas.Name = "txtSubtotal_ventas";
+            txtSubtotal_ventas.Size = new Size(125, 27);
+            txtSubtotal_ventas.TabIndex = 12;
+            // 
+            // txtIVA_ventas
+            // 
+            txtIVA_ventas.Location = new Point(97, 62);
+            txtIVA_ventas.Name = "txtIVA_ventas";
+            txtIVA_ventas.Size = new Size(125, 27);
+            txtIVA_ventas.TabIndex = 10;
+            // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
@@ -235,6 +302,20 @@
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos del Cliente";
+            // 
+            // txtTelefono_ventas
+            // 
+            txtTelefono_ventas.Location = new Point(97, 73);
+            txtTelefono_ventas.Name = "txtTelefono_ventas";
+            txtTelefono_ventas.Size = new Size(125, 27);
+            txtTelefono_ventas.TabIndex = 9;
+            // 
+            // txtNombre_ventas
+            // 
+            txtNombre_ventas.Location = new Point(97, 32);
+            txtNombre_ventas.Name = "txtNombre_ventas";
+            txtNombre_ventas.Size = new Size(125, 27);
+            txtNombre_ventas.TabIndex = 8;
             // 
             // label7
             // 
@@ -319,6 +400,7 @@
             btnSeleccionarAsientos.TabIndex = 9;
             btnSeleccionarAsientos.Text = "Seleccionar Asientos";
             btnSeleccionarAsientos.UseVisualStyleBackColor = false;
+            btnSeleccionarAsientos.Click += btnSeleccionarAsientos_Click;
             // 
             // btnComprar
             // 
@@ -343,87 +425,7 @@
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // cmbPelicula_ventas
-            // 
-            cmbPelicula_ventas.FormattingEnabled = true;
-            cmbPelicula_ventas.Location = new Point(97, 22);
-            cmbPelicula_ventas.Name = "cmbPelicula_ventas";
-            cmbPelicula_ventas.Size = new Size(151, 28);
-            cmbPelicula_ventas.TabIndex = 9;
-            // 
-            // cmbFuncion_ventas
-            // 
-            cmbFuncion_ventas.FormattingEnabled = true;
-            cmbFuncion_ventas.Location = new Point(97, 58);
-            cmbFuncion_ventas.Name = "cmbFuncion_ventas";
-            cmbFuncion_ventas.Size = new Size(151, 28);
-            cmbFuncion_ventas.TabIndex = 10;
-            // 
-            // txtNombre_ventas
-            // 
-            txtNombre_ventas.Location = new Point(97, 32);
-            txtNombre_ventas.Name = "txtNombre_ventas";
-            txtNombre_ventas.Size = new Size(125, 27);
-            txtNombre_ventas.TabIndex = 8;
-            // 
-            // txtTelefono_ventas
-            // 
-            txtTelefono_ventas.Location = new Point(97, 73);
-            txtTelefono_ventas.Name = "txtTelefono_ventas";
-            txtTelefono_ventas.Size = new Size(125, 27);
-            txtTelefono_ventas.TabIndex = 9;
-            // 
-            // txtIVA_ventas
-            // 
-            txtIVA_ventas.Location = new Point(97, 62);
-            txtIVA_ventas.Name = "txtIVA_ventas";
-            txtIVA_ventas.Size = new Size(125, 27);
-            txtIVA_ventas.TabIndex = 10;
-            // 
-            // txtTotal_ventas
-            // 
-            txtTotal_ventas.Location = new Point(97, 101);
-            txtTotal_ventas.Name = "txtTotal_ventas";
-            txtTotal_ventas.Size = new Size(125, 27);
-            txtTotal_ventas.TabIndex = 11;
-            // 
-            // txtSubtotal_ventas
-            // 
-            txtSubtotal_ventas.Location = new Point(97, 22);
-            txtSubtotal_ventas.Name = "txtSubtotal_ventas";
-            txtSubtotal_ventas.Size = new Size(125, 27);
-            txtSubtotal_ventas.TabIndex = 12;
-            // 
-            // lblSala_ventas
-            // 
-            lblSala_ventas.AutoSize = true;
-            lblSala_ventas.ForeColor = SystemColors.ControlText;
-            lblSala_ventas.Location = new Point(97, 96);
-            lblSala_ventas.Name = "lblSala_ventas";
-            lblSala_ventas.Size = new Size(12, 20);
-            lblSala_ventas.TabIndex = 11;
-            lblSala_ventas.Text = ".";
-            // 
-            // lblHora_ventas
-            // 
-            lblHora_ventas.AutoSize = true;
-            lblHora_ventas.ForeColor = SystemColors.ControlText;
-            lblHora_ventas.Location = new Point(97, 133);
-            lblHora_ventas.Name = "lblHora_ventas";
-            lblHora_ventas.Size = new Size(12, 20);
-            lblHora_ventas.TabIndex = 12;
-            lblHora_ventas.Text = ".";
-            // 
-            // lblPrecio_ventas
-            // 
-            lblPrecio_ventas.AutoSize = true;
-            lblPrecio_ventas.ForeColor = SystemColors.ControlText;
-            lblPrecio_ventas.Location = new Point(97, 167);
-            lblPrecio_ventas.Name = "lblPrecio_ventas";
-            lblPrecio_ventas.Size = new Size(12, 20);
-            lblPrecio_ventas.TabIndex = 13;
-            lblPrecio_ventas.Text = ".";
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // Ventas
             // 
