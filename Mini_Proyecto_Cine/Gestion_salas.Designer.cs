@@ -291,14 +291,10 @@
         private Button btnGuardar_salas;
         private Button btnNuevo_salas;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
         private ComboBox cmbEstado_salas;
-        private ComboBox cmbCategoria_inve;
-        private TextBox txtPrecio_inve;
-        private TextBox txtStock_inve;
         private TextBox txtNum_sala_salas;
         private TextBox txtCapacidad_salas;
         private DataGridViewTextBoxColumn ID;
