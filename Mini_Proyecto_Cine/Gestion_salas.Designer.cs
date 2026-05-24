@@ -30,7 +30,13 @@
         {
             groupBox2 = new GroupBox();
             dgvSalas = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Numero_sala = new DataGridViewTextBoxColumn();
+            Capacidad = new DataGridViewTextBoxColumn();
+            Descripcion = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
+            txtCapacidad_salas = new TextBox();
             pbGestion_salas = new PictureBox();
             btnLimpiar_salas = new Button();
             btnEliminar_salas = new Button();
@@ -42,14 +48,8 @@
             label2 = new Label();
             label1 = new Label();
             cmbEstado_salas = new ComboBox();
-            this.txtDescripcion_salas = new TextBox();
             txtNum_sala_salas = new TextBox();
-            txtCapacidad_salas = new TextBox();
-            ID = new DataGridViewTextBoxColumn();
-            Numero_sala = new DataGridViewTextBoxColumn();
-            Capacidad = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
+            txtDescripcion_salas = new TextBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
             groupBox1.SuspendLayout();
@@ -76,8 +76,54 @@
             dgvSalas.Size = new Size(1027, 279);
             dgvSalas.TabIndex = 0;
             // 
+            // ID
+            // 
+            ID.FillWeight = 28.4752941F;
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Width = 80;
+            // 
+            // Numero_sala
+            // 
+            Numero_sala.FillWeight = 11.8986053F;
+            Numero_sala.HeaderText = "Numero de Sala";
+            Numero_sala.MinimumWidth = 6;
+            Numero_sala.Name = "Numero_sala";
+            Numero_sala.ReadOnly = true;
+            Numero_sala.Width = 195;
+            // 
+            // Capacidad
+            // 
+            Capacidad.FillWeight = 11.8986053F;
+            Capacidad.HeaderText = "Capacidad";
+            Capacidad.MinimumWidth = 6;
+            Capacidad.Name = "Capacidad";
+            Capacidad.ReadOnly = true;
+            Capacidad.Width = 170;
+            // 
+            // Descripcion
+            // 
+            Descripcion.FillWeight = 435.8289F;
+            Descripcion.HeaderText = "Descripcion";
+            Descripcion.MinimumWidth = 6;
+            Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
+            Descripcion.Width = 325;
+            // 
+            // Estado
+            // 
+            Estado.FillWeight = 11.8986053F;
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            Estado.Width = 200;
+            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtDescripcion_salas);
             groupBox1.Controls.Add(txtCapacidad_salas);
             groupBox1.Controls.Add(pbGestion_salas);
             groupBox1.Controls.Add(btnLimpiar_salas);
@@ -90,7 +136,6 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(cmbEstado_salas);
-            groupBox1.Controls.Add(this.txtDescripcion_salas);
             groupBox1.Controls.Add(txtNum_sala_salas);
             groupBox1.Location = new Point(13, 11);
             groupBox1.Name = "groupBox1";
@@ -98,6 +143,13 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de la Sala ";
+            // 
+            // txtCapacidad_salas
+            // 
+            txtCapacidad_salas.Location = new Point(191, 95);
+            txtCapacidad_salas.Name = "txtCapacidad_salas";
+            txtCapacidad_salas.Size = new Size(171, 27);
+            txtCapacidad_salas.TabIndex = 16;
             // 
             // pbGestion_salas
             // 
@@ -196,14 +248,6 @@
             cmbEstado_salas.Size = new Size(171, 28);
             cmbEstado_salas.TabIndex = 4;
             // 
-            // txtDescripcion_salas
-            // 
-            this.txtDescripcion_salas.Location = new Point(191, 157);
-            this.txtDescripcion_salas.Multiline = true;
-            this.txtDescripcion_salas.Name = "txtDescripcion_salas";
-            this.txtDescripcion_salas.Size = new Size(171, 60);
-            this.txtDescripcion_salas.TabIndex = 2;
-            // 
             // txtNum_sala_salas
             // 
             txtNum_sala_salas.Location = new Point(191, 38);
@@ -211,57 +255,12 @@
             txtNum_sala_salas.Size = new Size(171, 27);
             txtNum_sala_salas.TabIndex = 0;
             // 
-            // txtCapacidad_salas
+            // txtDescripcion_salas
             // 
-            txtCapacidad_salas.Location = new Point(191, 95);
-            txtCapacidad_salas.Name = "txtCapacidad_salas";
-            txtCapacidad_salas.Size = new Size(171, 27);
-            txtCapacidad_salas.TabIndex = 16;
-            // 
-            // ID
-            // 
-            ID.FillWeight = 28.4752941F;
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Width = 80;
-            // 
-            // Numero_sala
-            // 
-            Numero_sala.FillWeight = 11.8986053F;
-            Numero_sala.HeaderText = "Numero de Sala";
-            Numero_sala.MinimumWidth = 6;
-            Numero_sala.Name = "Numero_sala";
-            Numero_sala.ReadOnly = true;
-            Numero_sala.Width = 195;
-            // 
-            // Capacidad
-            // 
-            Capacidad.FillWeight = 11.8986053F;
-            Capacidad.HeaderText = "Capacidad";
-            Capacidad.MinimumWidth = 6;
-            Capacidad.Name = "Capacidad";
-            Capacidad.ReadOnly = true;
-            Capacidad.Width = 170;
-            // 
-            // Descripcion
-            // 
-            Descripcion.FillWeight = 435.8289F;
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.MinimumWidth = 6;
-            Descripcion.Name = "Descripcion";
-            Descripcion.ReadOnly = true;
-            Descripcion.Width = 325;
-            // 
-            // Estado
-            // 
-            Estado.FillWeight = 11.8986053F;
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            Estado.Width = 200;
+            txtDescripcion_salas.Location = new Point(191, 157);
+            txtDescripcion_salas.Name = "txtDescripcion_salas";
+            txtDescripcion_salas.Size = new Size(171, 27);
+            txtDescripcion_salas.TabIndex = 17;
             // 
             // Gestion_salas
             // 
@@ -307,5 +306,6 @@
         private DataGridViewTextBoxColumn Capacidad;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Estado;
+        private TextBox txtDescripcion_salas;
     }
 }
