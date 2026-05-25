@@ -30,36 +30,36 @@
         {
             cmbCategoria = new ComboBox();
             groupBox1 = new GroupBox();
-            cmbClasificacion = new ComboBox();
-            cmbEstado = new ComboBox();
-            txtNombre = new TextBox();
-            txtDuracion = new TextBox();
-            txtDescripcion = new TextBox();
-            btnCargar = new Button();
-            pictureBox1 = new PictureBox();
-            lblNombre = new Label();
-            lblClasificacion = new Label();
-            lblCategoria = new Label();
-            lblDuración = new Label();
-            lblDescripción = new Label();
-            lblEstado = new Label();
-            lblImagen = new Label();
-            label8 = new Label();
             btnQuitar = new Button();
+            lblImagen = new Label();
+            lblEstado = new Label();
+            lblDescripción = new Label();
+            lblDuración = new Label();
+            lblCategoria = new Label();
+            lblClasificacion = new Label();
+            lblNombre = new Label();
+            pictureBox1 = new PictureBox();
+            btnCargar = new Button();
+            txtDescripcion = new TextBox();
+            txtDuracion = new TextBox();
+            txtNombre = new TextBox();
+            cmbEstado = new ComboBox();
+            cmbClasificacion = new ComboBox();
+            label8 = new Label();
             dataGridView1 = new DataGridView();
-            grbListado = new GroupBox();
-            btnNuevo = new Button();
-            txtBuscar = new TextBox();
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
             Clasificacion = new DataGridViewTextBoxColumn();
             Duracion = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            btnEditar = new Button();
-            btnGuardar = new Button();
-            btnEliminar = new Button();
+            grbListado = new GroupBox();
             btnCancelar = new Button();
+            btnEliminar = new Button();
+            btnGuardar = new Button();
+            btnEditar = new Button();
+            txtBuscar = new TextBox();
+            btnNuevo = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -100,116 +100,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de la pelicula";
             // 
-            // cmbClasificacion
+            // btnQuitar
             // 
-            cmbClasificacion.FormattingEnabled = true;
-            cmbClasificacion.Items.AddRange(new object[] { "AA (Todo publico)", "A (Mayores de 12)", "B (Mayores de 15)", "C (Mayores de 18) " });
-            cmbClasificacion.Location = new Point(116, 129);
-            cmbClasificacion.Name = "cmbClasificacion";
-            cmbClasificacion.Size = new Size(241, 23);
-            cmbClasificacion.TabIndex = 1;
-            // 
-            // cmbEstado
-            // 
-            cmbEstado.FormattingEnabled = true;
-            cmbEstado.Items.AddRange(new object[] { "En cartelera", "Próximamente", "Finalizada", "Suspendida" });
-            cmbEstado.Location = new Point(116, 324);
-            cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(241, 23);
-            cmbEstado.TabIndex = 2;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(116, 45);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(241, 23);
-            txtNombre.TabIndex = 3;
-            // 
-            // txtDuracion
-            // 
-            txtDuracion.Location = new Point(116, 168);
-            txtDuracion.Name = "txtDuracion";
-            txtDuracion.Size = new Size(241, 23);
-            txtDuracion.TabIndex = 4;
-            // 
-            // txtDescripcion
-            // 
-            txtDescripcion.Location = new Point(116, 197);
-            txtDescripcion.Multiline = true;
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(241, 110);
-            txtDescripcion.TabIndex = 5;
-            // 
-            // btnCargar
-            // 
-            btnCargar.Location = new Point(254, 380);
-            btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(87, 33);
-            btnCargar.TabIndex = 6;
-            btnCargar.Text = "Cargar";
-            btnCargar.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(116, 353);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(96, 123);
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
-            // 
-            // lblNombre
-            // 
-            lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(16, 45);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(54, 15);
-            lblNombre.TabIndex = 9;
-            lblNombre.Text = "Nombre:";
-            // 
-            // lblClasificacion
-            // 
-            lblClasificacion.AutoSize = true;
-            lblClasificacion.Location = new Point(16, 132);
-            lblClasificacion.Name = "lblClasificacion";
-            lblClasificacion.Size = new Size(77, 15);
-            lblClasificacion.TabIndex = 10;
-            lblClasificacion.Text = "Clasificación:";
-            // 
-            // lblCategoria
-            // 
-            lblCategoria.AutoSize = true;
-            lblCategoria.Location = new Point(16, 88);
-            lblCategoria.Name = "lblCategoria";
-            lblCategoria.Size = new Size(61, 15);
-            lblCategoria.TabIndex = 11;
-            lblCategoria.Text = "Categoria:";
-            // 
-            // lblDuración
-            // 
-            lblDuración.AutoSize = true;
-            lblDuración.Location = new Point(16, 168);
-            lblDuración.Name = "lblDuración";
-            lblDuración.Size = new Size(87, 15);
-            lblDuración.TabIndex = 12;
-            lblDuración.Text = "Duración(min):";
-            // 
-            // lblDescripción
-            // 
-            lblDescripción.AutoSize = true;
-            lblDescripción.Location = new Point(16, 220);
-            lblDescripción.Name = "lblDescripción";
-            lblDescripción.Size = new Size(72, 15);
-            lblDescripción.TabIndex = 13;
-            lblDescripción.Text = "Descripción:";
-            // 
-            // lblEstado
-            // 
-            lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(16, 332);
-            lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(45, 15);
-            lblEstado.TabIndex = 14;
-            lblEstado.Text = "Estado:";
+            btnQuitar.Location = new Point(254, 430);
+            btnQuitar.Name = "btnQuitar";
+            btnQuitar.Size = new Size(87, 33);
+            btnQuitar.TabIndex = 16;
+            btnQuitar.Text = "Quitar";
+            btnQuitar.UseVisualStyleBackColor = true;
+            btnQuitar.Click += btnQuitar_Click;
             // 
             // lblImagen
             // 
@@ -220,6 +119,118 @@
             lblImagen.TabIndex = 15;
             lblImagen.Text = "Imagen:";
             // 
+            // lblEstado
+            // 
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(16, 332);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(45, 15);
+            lblEstado.TabIndex = 14;
+            lblEstado.Text = "Estado:";
+            // 
+            // lblDescripción
+            // 
+            lblDescripción.AutoSize = true;
+            lblDescripción.Location = new Point(16, 220);
+            lblDescripción.Name = "lblDescripción";
+            lblDescripción.Size = new Size(72, 15);
+            lblDescripción.TabIndex = 13;
+            lblDescripción.Text = "Descripción:";
+            // 
+            // lblDuración
+            // 
+            lblDuración.AutoSize = true;
+            lblDuración.Location = new Point(16, 168);
+            lblDuración.Name = "lblDuración";
+            lblDuración.Size = new Size(87, 15);
+            lblDuración.TabIndex = 12;
+            lblDuración.Text = "Duración(min):";
+            // 
+            // lblCategoria
+            // 
+            lblCategoria.AutoSize = true;
+            lblCategoria.Location = new Point(16, 88);
+            lblCategoria.Name = "lblCategoria";
+            lblCategoria.Size = new Size(61, 15);
+            lblCategoria.TabIndex = 11;
+            lblCategoria.Text = "Categoria:";
+            // 
+            // lblClasificacion
+            // 
+            lblClasificacion.AutoSize = true;
+            lblClasificacion.Location = new Point(16, 132);
+            lblClasificacion.Name = "lblClasificacion";
+            lblClasificacion.Size = new Size(77, 15);
+            lblClasificacion.TabIndex = 10;
+            lblClasificacion.Text = "Clasificación:";
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(16, 45);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(54, 15);
+            lblNombre.TabIndex = 9;
+            lblNombre.Text = "Nombre:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(116, 353);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(96, 123);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
+            // btnCargar
+            // 
+            btnCargar.Location = new Point(254, 380);
+            btnCargar.Name = "btnCargar";
+            btnCargar.Size = new Size(87, 33);
+            btnCargar.TabIndex = 6;
+            btnCargar.Text = "Cargar";
+            btnCargar.UseVisualStyleBackColor = true;
+            btnCargar.Click += btnCargar_Click;
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(116, 197);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(241, 110);
+            txtDescripcion.TabIndex = 5;
+            // 
+            // txtDuracion
+            // 
+            txtDuracion.Location = new Point(116, 168);
+            txtDuracion.Name = "txtDuracion";
+            txtDuracion.Size = new Size(241, 23);
+            txtDuracion.TabIndex = 4;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(116, 45);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(241, 23);
+            txtNombre.TabIndex = 3;
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Items.AddRange(new object[] { "En cartelera", "Próximamente", "Finalizada", "Suspendida" });
+            cmbEstado.Location = new Point(116, 324);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(241, 23);
+            cmbEstado.TabIndex = 2;
+            // 
+            // cmbClasificacion
+            // 
+            cmbClasificacion.FormattingEnabled = true;
+            cmbClasificacion.Items.AddRange(new object[] { "AA (Todo publico)", "A (Mayores de 12)", "B (Mayores de 15)", "C (Mayores de 18) " });
+            cmbClasificacion.Location = new Point(116, 129);
+            cmbClasificacion.Name = "cmbClasificacion";
+            cmbClasificacion.Size = new Size(241, 23);
+            cmbClasificacion.TabIndex = 1;
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -228,15 +239,6 @@
             label8.Size = new Size(45, 15);
             label8.TabIndex = 16;
             label8.Text = "Buscar:";
-            // 
-            // btnQuitar
-            // 
-            btnQuitar.Location = new Point(254, 430);
-            btnQuitar.Name = "btnQuitar";
-            btnQuitar.Size = new Size(87, 33);
-            btnQuitar.TabIndex = 16;
-            btnQuitar.Text = "Quitar";
-            btnQuitar.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -247,41 +249,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(543, 254);
             dataGridView1.TabIndex = 17;
-            // 
-            // grbListado
-            // 
-            grbListado.Controls.Add(btnCancelar);
-            grbListado.Controls.Add(btnEliminar);
-            grbListado.Controls.Add(btnGuardar);
-            grbListado.Controls.Add(btnEditar);
-            grbListado.Controls.Add(txtBuscar);
-            grbListado.Controls.Add(btnNuevo);
-            grbListado.Controls.Add(label8);
-            grbListado.Controls.Add(dataGridView1);
-            grbListado.Location = new Point(410, 12);
-            grbListado.Name = "grbListado";
-            grbListado.Size = new Size(581, 507);
-            grbListado.TabIndex = 18;
-            grbListado.TabStop = false;
-            grbListado.Text = "Listado peliculas ";
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.BackColor = Color.Navy;
-            btnNuevo.ForeColor = SystemColors.ButtonHighlight;
-            btnNuevo.Location = new Point(13, 430);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(88, 33);
-            btnNuevo.TabIndex = 19;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Location = new Point(94, 34);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(231, 23);
-            txtBuscar.TabIndex = 23;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // ID
             // 
@@ -313,38 +281,22 @@
             Estado.HeaderText = "Estado";
             Estado.Name = "Estado";
             // 
-            // btnEditar
+            // grbListado
             // 
-            btnEditar.BackColor = Color.FromArgb(255, 128, 0);
-            btnEditar.ForeColor = SystemColors.ButtonHighlight;
-            btnEditar.Location = new Point(258, 430);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(88, 33);
-            btnEditar.TabIndex = 24;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.BackColor = Color.Green;
-            btnGuardar.ForeColor = SystemColors.ButtonHighlight;
-            btnGuardar.Location = new Point(123, 430);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(88, 33);
-            btnGuardar.TabIndex = 25;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.FromArgb(192, 0, 0);
-            btnEliminar.ForeColor = SystemColors.ButtonHighlight;
-            btnEliminar.Location = new Point(365, 430);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(88, 33);
-            btnEliminar.TabIndex = 26;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = false;
+            grbListado.Controls.Add(btnCancelar);
+            grbListado.Controls.Add(btnEliminar);
+            grbListado.Controls.Add(btnGuardar);
+            grbListado.Controls.Add(btnEditar);
+            grbListado.Controls.Add(txtBuscar);
+            grbListado.Controls.Add(btnNuevo);
+            grbListado.Controls.Add(label8);
+            grbListado.Controls.Add(dataGridView1);
+            grbListado.Location = new Point(410, 12);
+            grbListado.Name = "grbListado";
+            grbListado.Size = new Size(581, 507);
+            grbListado.TabIndex = 18;
+            grbListado.TabStop = false;
+            grbListado.Text = "Listado peliculas ";
             // 
             // btnCancelar
             // 
@@ -356,6 +308,63 @@
             btnCancelar.TabIndex = 27;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click_1;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.FromArgb(192, 0, 0);
+            btnEliminar.ForeColor = SystemColors.ButtonHighlight;
+            btnEliminar.Location = new Point(365, 430);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(88, 33);
+            btnEliminar.TabIndex = 26;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click_1;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.BackColor = Color.Green;
+            btnGuardar.ForeColor = SystemColors.ButtonHighlight;
+            btnGuardar.Location = new Point(123, 430);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(88, 33);
+            btnGuardar.TabIndex = 25;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click_1;
+            // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.FromArgb(255, 128, 0);
+            btnEditar.ForeColor = SystemColors.ButtonHighlight;
+            btnEditar.Location = new Point(258, 430);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(88, 33);
+            btnEditar.TabIndex = 24;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click_1;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(94, 34);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(231, 23);
+            txtBuscar.TabIndex = 23;
+            txtBuscar.TextChanged += txtBuscar_TextChanged_1;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.BackColor = Color.Navy;
+            btnNuevo.ForeColor = SystemColors.ButtonHighlight;
+            btnNuevo.Location = new Point(13, 430);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(88, 33);
+            btnNuevo.TabIndex = 19;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click_1;
             // 
             // Peliculas
             // 

@@ -1,20 +1,152 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Mini_Proyecto_Cine
 {
     public partial class Usuarios : Form
     {
+        private int idSeleccionado = 0;
+
         public Usuarios()
         {
             InitializeComponent();
+            cmbRol.Items.AddRange(new[] { "superadmin", "administrador", "ventas", "cliente" });
+            cmbEstado.Items.AddRange(new[] { "activo", "inactivo" });
+            CargarUsuarios();
+            EstadoBotones(false);
+        }
+
+        private string Hashear(string clave)
+        {
+            using SHA256 sha = SHA256.Create();
+            byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(clave));
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in bytes) sb.Append(b.ToString("x2"));
+            return sb.ToString();
+        }
+
+        private void CargarUsuarios(string filtro = "")
+        {
+            dgvUsuarios.Rows.Clear();
+            MySqlConnection con = Conexion.ObtenerConexion();
+            try
+            {
+                con.Open();
+                string sql = "SELECT id_usuario, nombre, usuario, rol, estado FROM usuarios WHERE nombre LIKE @f OR usuario LIKE @f";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@f", "%" + filtro + "%");
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                    dgvUsuarios.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4]);
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            finally { con.Close(); }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear(); txtUsuario.Clear(); txtContraseña.Clear();
+            cmbRol.SelectedIndex = -1; cmbEstado.SelectedIndex = -1;
+            idSeleccionado = 0;
+        }
+
+        private void EstadoBotones(bool editando)
+        {
+            btnGuardar.Enabled = editando;
+            btnEditar.Enabled = !editando && idSeleccionado > 0;
+            btnEliminar.Enabled = !editando && idSeleccionado > 0;
+            btnNuevo.Enabled = !editando;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos(); EstadoBotones(true); txtNombre.Focus();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text)
+                || cmbRol.SelectedIndex < 0 || cmbEstado.SelectedIndex < 0)
+            {
+                MessageBox.Show("Completa todos los campos.", "Aviso"); return;
+            }
+
+            MySqlConnection con = Conexion.ObtenerConexion();
+            try
+            {
+                con.Open();
+                MySqlCommand cmd;
+                if (idSeleccionado == 0)
+                {
+                    if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+                    { MessageBox.Show("Escribe una contraseña."); return; }
+                    cmd = new MySqlCommand("INSERT INTO usuarios (nombre,usuario,clave,rol,estado) VALUES (@n,@u,@c,@r,@e)", con);
+                    cmd.Parameters.AddWithValue("@c", Hashear(txtContraseña.Text));
+                }
+                else
+                {
+                    string sql = string.IsNullOrWhiteSpace(txtContraseña.Text)
+                        ? "UPDATE usuarios SET nombre=@n,usuario=@u,rol=@r,estado=@e WHERE id_usuario=@id"
+                        : "UPDATE usuarios SET nombre=@n,usuario=@u,clave=@c,rol=@r,estado=@e WHERE id_usuario=@id";
+                    cmd = new MySqlCommand(sql, con);
+                    if (!string.IsNullOrWhiteSpace(txtContraseña.Text))
+                        cmd.Parameters.AddWithValue("@c", Hashear(txtContraseña.Text));
+                    cmd.Parameters.AddWithValue("@id", idSeleccionado);
+                }
+                cmd.Parameters.AddWithValue("@n", txtNombre.Text.Trim());
+                cmd.Parameters.AddWithValue("@u", txtUsuario.Text.Trim());
+                cmd.Parameters.AddWithValue("@r", cmbRol.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@e", cmbEstado.SelectedItem.ToString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Guardado correctamente.", "Éxito");
+                LimpiarCampos(); CargarUsuarios(); EstadoBotones(false);
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            finally { con.Close(); }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e) => EstadoBotones(true);
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idSeleccionado == 0) return;
+            if (MessageBox.Show("¿Eliminar usuario?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            MySqlConnection con = Conexion.ObtenerConexion();
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM usuarios WHERE id_usuario=@id", con);
+                cmd.Parameters.AddWithValue("@id", idSeleccionado);
+                cmd.ExecuteNonQuery();
+                LimpiarCampos(); CargarUsuarios(); EstadoBotones(false);
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+            finally { con.Close(); }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos(); EstadoBotones(false);
+        }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvUsuarios.Rows[e.RowIndex];
+            idSeleccionado = Convert.ToInt32(row.Cells[0].Value);
+            txtNombre.Text = row.Cells[1].Value?.ToString();
+            txtUsuario.Text = row.Cells[2].Value?.ToString();
+            cmbRol.SelectedItem = row.Cells[3].Value?.ToString();
+            cmbEstado.SelectedItem = row.Cells[4].Value?.ToString();
+            txtContraseña.Clear();
+            EstadoBotones(false);
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            CargarUsuarios(txtBuscar.Text);
         }
     }
 }

@@ -32,6 +32,8 @@
             txtPrecio = new TextBox();
             cmbSala = new ComboBox();
             grbFunciones = new GroupBox();
+            cmbPelicula = new ComboBox();
+            label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -43,8 +45,6 @@
             btnNuevo = new Button();
             dtpFecha = new DateTimePicker();
             dgvFunciones = new DataGridView();
-            label5 = new Label();
-            cmbPelicula = new ComboBox();
             id = new DataGridViewTextBoxColumn();
             Pelicula = new DataGridViewTextBoxColumn();
             Sala = new DataGridViewTextBoxColumn();
@@ -57,24 +57,27 @@
             // 
             // txtHora
             // 
-            txtHora.Location = new Point(461, 176);
+            txtHora.Location = new Point(403, 132);
+            txtHora.Margin = new Padding(3, 2, 3, 2);
             txtHora.Name = "txtHora";
-            txtHora.Size = new Size(125, 27);
+            txtHora.Size = new Size(110, 23);
             txtHora.TabIndex = 1;
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(737, 126);
+            txtPrecio.Location = new Point(645, 94);
+            txtPrecio.Margin = new Padding(3, 2, 3, 2);
             txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(125, 27);
+            txtPrecio.Size = new Size(110, 23);
             txtPrecio.TabIndex = 2;
             // 
             // cmbSala
             // 
             cmbSala.FormattingEnabled = true;
-            cmbSala.Location = new Point(461, 47);
+            cmbSala.Location = new Point(403, 35);
+            cmbSala.Margin = new Padding(3, 2, 3, 2);
             cmbSala.Name = "cmbSala";
-            cmbSala.Size = new Size(125, 28);
+            cmbSala.Size = new Size(110, 23);
             cmbSala.TabIndex = 3;
             // 
             // grbFunciones
@@ -94,106 +97,137 @@
             grbFunciones.Controls.Add(txtPrecio);
             grbFunciones.Controls.Add(txtHora);
             grbFunciones.Controls.Add(cmbSala);
-            grbFunciones.Location = new Point(12, 12);
+            grbFunciones.Location = new Point(10, 9);
+            grbFunciones.Margin = new Padding(3, 2, 3, 2);
             grbFunciones.Name = "grbFunciones";
-            grbFunciones.Size = new Size(1202, 312);
+            grbFunciones.Padding = new Padding(3, 2, 3, 2);
+            grbFunciones.Size = new Size(1052, 234);
             grbFunciones.TabIndex = 5;
             grbFunciones.TabStop = false;
             grbFunciones.Text = "Datos de la funcion";
             // 
+            // cmbPelicula
+            // 
+            cmbPelicula.FormattingEnabled = true;
+            cmbPelicula.Location = new Point(132, 35);
+            cmbPelicula.Margin = new Padding(3, 2, 3, 2);
+            cmbPelicula.Name = "cmbPelicula";
+            cmbPelicula.Size = new Size(110, 23);
+            cmbPelicula.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(596, 97);
+            label5.Name = "label5";
+            label5.Size = new Size(40, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Precio";
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(95, 179);
+            label4.Location = new Point(83, 134);
             label4.Name = "label4";
-            label4.Size = new Size(47, 20);
+            label4.Size = new Size(38, 15);
             label4.TabIndex = 14;
             label4.Text = "Fecha";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(402, 179);
+            label3.Location = new Point(352, 134);
             label3.Name = "label3";
-            label3.Size = new Size(42, 20);
+            label3.Size = new Size(33, 15);
             label3.TabIndex = 13;
             label3.Text = "Hora";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(407, 54);
+            label2.Location = new Point(356, 40);
             label2.Name = "label2";
-            label2.Size = new Size(37, 20);
+            label2.Size = new Size(28, 15);
             label2.TabIndex = 12;
             label2.Text = "Sala";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(83, 54);
+            label1.Location = new Point(73, 40);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
+            label1.Size = new Size(48, 15);
             label1.TabIndex = 11;
             label1.Text = "Pelicula";
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.Silver;
-            btnCancelar.Location = new Point(761, 245);
+            btnCancelar.Location = new Point(666, 184);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.Size = new Size(82, 22);
             btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.Red;
-            btnEliminar.Location = new Point(598, 245);
+            btnEliminar.Location = new Point(523, 184);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(82, 22);
             btnEliminar.TabIndex = 9;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
             btnEditar.BackColor = Color.FromArgb(255, 128, 0);
-            btnEditar.Location = new Point(446, 245);
+            btnEditar.Location = new Point(390, 184);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
+            btnEditar.Size = new Size(82, 22);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.Lime;
-            btnGuardar.Location = new Point(290, 245);
+            btnGuardar.Location = new Point(254, 184);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(82, 22);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnNuevo
             // 
             btnNuevo.BackColor = Color.DodgerBlue;
-            btnNuevo.Location = new Point(151, 245);
+            btnNuevo.Location = new Point(132, 184);
+            btnNuevo.Margin = new Padding(3, 2, 3, 2);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(94, 29);
+            btnNuevo.Size = new Size(82, 22);
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // dtpFecha
             // 
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(151, 174);
+            dtpFecha.Location = new Point(132, 130);
+            dtpFecha.Margin = new Padding(3, 2, 3, 2);
             dtpFecha.MaxDate = new DateTime(2026, 5, 22, 0, 0, 0, 0);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(125, 27);
+            dtpFecha.Size = new Size(110, 23);
             dtpFecha.TabIndex = 5;
             dtpFecha.Value = new DateTime(2026, 5, 22, 0, 0, 0, 0);
             // 
@@ -201,28 +235,13 @@
             // 
             dgvFunciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFunciones.Columns.AddRange(new DataGridViewColumn[] { id, Pelicula, Sala, Fecha, Hora, Precio });
-            dgvFunciones.Location = new Point(12, 330);
+            dgvFunciones.Location = new Point(10, 248);
+            dgvFunciones.Margin = new Padding(3, 2, 3, 2);
             dgvFunciones.Name = "dgvFunciones";
             dgvFunciones.RowHeadersWidth = 51;
-            dgvFunciones.Size = new Size(1192, 300);
+            dgvFunciones.Size = new Size(1043, 225);
             dgvFunciones.TabIndex = 6;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(681, 129);
-            label5.Name = "label5";
-            label5.Size = new Size(50, 20);
-            label5.TabIndex = 15;
-            label5.Text = "Precio";
-            // 
-            // cmbPelicula
-            // 
-            cmbPelicula.FormattingEnabled = true;
-            cmbPelicula.Location = new Point(151, 47);
-            cmbPelicula.Name = "cmbPelicula";
-            cmbPelicula.Size = new Size(125, 28);
-            cmbPelicula.TabIndex = 16;
+            dgvFunciones.CellContentClick += dgvFunciones_CellClick;
             // 
             // id
             // 
@@ -274,11 +293,12 @@
             // 
             // Funciones
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1216, 635);
+            ClientSize = new Size(1064, 476);
             Controls.Add(dgvFunciones);
             Controls.Add(grbFunciones);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Funciones";
             Text = "Funciones";
             grbFunciones.ResumeLayout(false);

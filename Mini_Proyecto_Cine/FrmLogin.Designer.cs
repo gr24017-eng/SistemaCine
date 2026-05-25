@@ -32,7 +32,7 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             btnIngresar = new Button();
-            txtContrasena = new TextBox();
+            txtContra = new TextBox();
             txtUsuario = new TextBox();
             label3 = new Label();
             lblContraseña = new Label();
@@ -46,7 +46,7 @@
             panel1.BackColor = Color.White;
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnIngresar);
-            panel1.Controls.Add(txtContrasena);
+            panel1.Controls.Add(txtContra);
             panel1.Controls.Add(txtUsuario);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(lblContraseña);
@@ -75,14 +75,15 @@
             btnIngresar.TabIndex = 5;
             btnIngresar.Text = "Ingresar";
             btnIngresar.UseVisualStyleBackColor = true;
+            btnIngresar.Click += btnIngresar_Click;
             // 
-            // txtContrasena
+            // txtContra
             // 
-            txtContrasena.Location = new Point(244, 211);
-            txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(159, 23);
-            txtContrasena.TabIndex = 4;
-            txtContrasena.UseSystemPasswordChar = true;
+            txtContra.Location = new Point(244, 211);
+            txtContra.Name = "txtContra";
+            txtContra.Size = new Size(159, 23);
+            txtContra.TabIndex = 4;
+            txtContra.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
@@ -137,7 +138,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Button btnIngresar;
-        private TextBox txtContrasena;
+        private TextBox txtContra;
         private TextBox txtUsuario;
         private Label label3;
         private Label lblContraseña;
