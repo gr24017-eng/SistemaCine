@@ -18,18 +18,12 @@ namespace Mini_Proyecto_Cine
         public FrmAsientos()
         {
             InitializeComponent();
-            this.Load += FrmAsientos_Load1;
-        }
-
-        private void FrmAsientos_Load1(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         public void ConfigurarSala(int idSala)
         {
             // Primero mostrar todos los botones
-            foreach (Control c in panel1.Controls)
+            foreach (Control c in p_asientos.Controls)
                 if (c is Button) c.Visible = true;
 
             // Ocultar según la sala
@@ -64,14 +58,14 @@ namespace Mini_Proyecto_Cine
 
         private void OcultarFila(string fila)
         {
-            foreach (Control c in panel1.Controls)
+            foreach (Control c in p_asientos.Controls)
                 if (c is Button b && b.Text.StartsWith(fila))
                     b.Visible = false;
         }
 
         private void OcultarBoton(string nombre)
         {
-            foreach (Control c in panel1.Controls)
+            foreach (Control c in p_asientos.Controls)
                 if (c is Button b && b.Text == nombre)
                     b.Visible = false;
         }
@@ -104,17 +98,6 @@ namespace Mini_Proyecto_Cine
             lblCantAsientos.Text = asientosSeleccionados.Count + " asientos";
             // lblTotal se calculará cuando tengas el precio de la función
         }
-        private void FrmAsientos_Load(object sender, EventArgs e)
-        {
-            foreach (Control c in panel1.Controls)
-            {
-                if (c is Button b && b.Text != "")
-                {
-                    b.BackColor = Color.Green; // todos disponibles por ahora
-                    b.Click += btnAsiento_Click;
-                }
-            }
-        }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
@@ -134,6 +117,31 @@ namespace Mini_Proyecto_Cine
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-    }
 
+        private void FrmAsientos_Load(object sender, EventArgs e)
+        {
+            foreach (Control c in p_asientos.Controls)
+            {
+                if (c is Button b && b.Text != "")
+                {
+                    b.BackColor = Color.Green;
+                    b.FlatStyle = FlatStyle.Flat;
+                    b.Click += btnAsiento_Click;
+                }
+            }
+        }
+
+        public void MarcarOcupados(List<string> ocupados)
+        {
+            foreach (Control c in p_asientos.Controls)
+            {
+                if (c is Button b && ocupados.Contains(b.Text))
+                {
+                    b.UseVisualStyleBackColor = false;
+                    b.BackColor = ocupado;
+                    b.Tag = "ocupado";
+                }
+            }
+        }
+    }
 }

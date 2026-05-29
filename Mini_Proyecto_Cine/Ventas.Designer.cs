@@ -1,6 +1,6 @@
 ﻿namespace Mini_Proyecto_Cine
 {
-    partial class Ventas
+    partial class frm_Ventas
     {
         /// <summary>
         /// Required designer variable.
@@ -167,7 +167,6 @@
             label2.Size = new Size(40, 20);
             label2.TabIndex = 1;
             label2.Text = "Sala:";
-            label2.Click += label2_Click;
             // 
             // label9
             // 
@@ -413,6 +412,7 @@
             btnComprar.TabIndex = 11;
             btnComprar.Text = "Comprar";
             btnComprar.UseVisualStyleBackColor = false;
+            btnComprar.Click += btnComprar_Click;
             // 
             // btnCancelar
             // 
@@ -427,7 +427,7 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // Ventas
+            // frm_Ventas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -440,8 +440,9 @@
             Controls.Add(groupBox4);
             Controls.Add(groupBox1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Ventas";
+            Name = "frm_Ventas";
             Text = "Ventas";
+            Load += frm_Ventas_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

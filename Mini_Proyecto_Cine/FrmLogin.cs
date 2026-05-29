@@ -36,27 +36,40 @@ namespace Mini_Proyecto_Cine
             try
             {
                 con.Open();
-                string sql = "SELECT rol FROM usuarios WHERE usuario=@u AND clave=@c AND estado='activo'";
+
+                // Traer id, nombre y rol en una sola consulta
+                string sql = @"SELECT id_usuario, nombre, rol 
+                               FROM usuarios 
+                               WHERE usuario=@u AND clave=@c AND estado='activo'";
+
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@u", usuario);
                 cmd.Parameters.AddWithValue("@c", clave);
 
-                string rol = cmd.ExecuteScalar()?.ToString();
+                MySqlDataReader dr = cmd.ExecuteReader();
 
-                if (rol == null)
+                if (!dr.Read())
                 {
                     MessageBox.Show("Usuario o contraseña incorrectos.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
+                // Guardar sesión
+                Sesion.IdUsuario = dr.GetInt32("id_usuario");
+                Sesion.Nombre = dr.GetString("nombre");
+                Sesion.Rol = dr.GetString("rol");
+
+                dr.Close();
+
                 this.Hide();
-                FrmAdmin admin = new FrmAdmin(rol);
+                FrmAdmin admin = new FrmAdmin(Sesion.Rol);
                 admin.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexión: " + ex.Message);
+                MessageBox.Show("Error de conexión: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

@@ -36,6 +36,7 @@
             Descripcion = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
+            txtDescripcion_salas = new TextBox();
             txtCapacidad_salas = new TextBox();
             pbGestion_salas = new PictureBox();
             btnLimpiar_salas = new Button();
@@ -49,7 +50,6 @@
             label1 = new Label();
             cmbEstado_salas = new ComboBox();
             txtNum_sala_salas = new TextBox();
-            txtDescripcion_salas = new TextBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSalas).BeginInit();
             groupBox1.SuspendLayout();
@@ -75,6 +75,7 @@
             dgvSalas.RowHeadersWidth = 51;
             dgvSalas.Size = new Size(1027, 279);
             dgvSalas.TabIndex = 0;
+            dgvSalas.CellClick += dgvSalas_CellClick;
             // 
             // ID
             // 
@@ -144,6 +145,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de la Sala ";
             // 
+            // txtDescripcion_salas
+            // 
+            txtDescripcion_salas.Location = new Point(191, 157);
+            txtDescripcion_salas.Name = "txtDescripcion_salas";
+            txtDescripcion_salas.Size = new Size(171, 27);
+            txtDescripcion_salas.TabIndex = 17;
+            // 
             // txtCapacidad_salas
             // 
             txtCapacidad_salas.Location = new Point(191, 95);
@@ -167,6 +175,7 @@
             btnLimpiar_salas.TabIndex = 14;
             btnLimpiar_salas.Text = "Limpiar";
             btnLimpiar_salas.UseVisualStyleBackColor = true;
+            btnLimpiar_salas.Click += btnLimpiar_salas_Click;
             // 
             // btnEliminar_salas
             // 
@@ -176,6 +185,7 @@
             btnEliminar_salas.TabIndex = 13;
             btnEliminar_salas.Text = "Eliminar";
             btnEliminar_salas.UseVisualStyleBackColor = true;
+            btnEliminar_salas.Click += btnEliminar_salas_Click;
             // 
             // btnEditar_salas
             // 
@@ -185,6 +195,7 @@
             btnEditar_salas.TabIndex = 12;
             btnEditar_salas.Text = "Editar";
             btnEditar_salas.UseVisualStyleBackColor = true;
+            btnEditar_salas.Click += btnEditar_salas_Click;
             // 
             // btnGuardar_salas
             // 
@@ -194,6 +205,7 @@
             btnGuardar_salas.TabIndex = 11;
             btnGuardar_salas.Text = "Guardar";
             btnGuardar_salas.UseVisualStyleBackColor = true;
+            btnGuardar_salas.Click += btnGuardar_salas_Click;
             // 
             // btnNuevo_salas
             // 
@@ -203,6 +215,7 @@
             btnNuevo_salas.TabIndex = 10;
             btnNuevo_salas.Text = "Nuevo";
             btnNuevo_salas.UseVisualStyleBackColor = true;
+            btnNuevo_salas.Click += btnNuevo_salas_Click;
             // 
             // label5
             // 
@@ -255,13 +268,6 @@
             txtNum_sala_salas.Size = new Size(171, 27);
             txtNum_sala_salas.TabIndex = 0;
             // 
-            // txtDescripcion_salas
-            // 
-            txtDescripcion_salas.Location = new Point(191, 157);
-            txtDescripcion_salas.Name = "txtDescripcion_salas";
-            txtDescripcion_salas.Size = new Size(171, 27);
-            txtDescripcion_salas.TabIndex = 17;
-            // 
             // Gestion_salas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -271,6 +277,7 @@
             Controls.Add(groupBox1);
             Name = "Gestion_salas";
             Text = "Gestion_salas";
+            Load += Gestion_salas_Load;
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSalas).EndInit();
             groupBox1.ResumeLayout(false);

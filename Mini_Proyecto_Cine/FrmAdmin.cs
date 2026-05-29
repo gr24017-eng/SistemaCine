@@ -60,7 +60,7 @@ namespace Mini_Proyecto_Cine
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            new Ventas().Show();
+            new frm_Ventas().Show();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace Mini_Proyecto_Cine
         {
 
 
-            new Ventas().Show();
+            new frm_Ventas().Show();
         }
 
         private void btnInventario_Click_1(object sender, EventArgs e)

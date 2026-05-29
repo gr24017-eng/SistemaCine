@@ -22,4 +22,19 @@ namespace Mini_Proyecto_Cine
             }
         }
     }
+
+    public static class Sesion
+    {
+        public static int IdUsuario { get; set; }
+        public static string Rol { get; set; }
+        public static string Nombre { get; set; }
+    }
+
+    // Clase auxiliar para los ComboBox con ID
+    public class ComboItem
+    {
+        public int Id { get; set; }
+        public string Texto { get; set; }
+        public override string ToString() => Texto;
+    }
 }

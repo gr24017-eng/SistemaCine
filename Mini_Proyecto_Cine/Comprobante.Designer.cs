@@ -118,7 +118,6 @@
             lblSala.Size = new Size(12, 20);
             lblSala.TabIndex = 5;
             lblSala.Text = ".";
-            lblSala.Click += label7_Click;
             // 
             // label6
             // 
@@ -209,7 +208,6 @@
             lblIva.Size = new Size(12, 20);
             lblIva.TabIndex = 11;
             lblIva.Text = ".";
-            lblIva.Click += lblIva_Click;
             // 
             // label14
             // 

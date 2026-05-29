@@ -32,6 +32,12 @@
             label6 = new Label();
             txtBuscar_inve = new TextBox();
             dgvInventario = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Stock = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             pbInventario = new PictureBox();
             btnLimpiar_inve = new Button();
@@ -49,12 +55,6 @@
             txtPrecio_inve = new TextBox();
             txtStock_inve = new TextBox();
             txtNombre_inve = new TextBox();
-            ID = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Categoria = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInventario).BeginInit();
             groupBox1.SuspendLayout();
@@ -88,6 +88,7 @@
             txtBuscar_inve.Name = "txtBuscar_inve";
             txtBuscar_inve.Size = new Size(133, 27);
             txtBuscar_inve.TabIndex = 16;
+            txtBuscar_inve.TextChanged += txtBuscar_inve_TextChanged;
             // 
             // dgvInventario
             // 
@@ -99,6 +100,49 @@
             dgvInventario.RowHeadersWidth = 51;
             dgvInventario.Size = new Size(1027, 259);
             dgvInventario.TabIndex = 0;
+            dgvInventario.CellClick += dgvInventario_CellClick;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.HeaderText = "Producto";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            Categoria.HeaderText = "Categoria";
+            Categoria.MinimumWidth = 6;
+            Categoria.Name = "Categoria";
+            Categoria.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            Stock.HeaderText = "Stock";
+            Stock.MinimumWidth = 6;
+            Stock.Name = "Stock";
+            Stock.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -141,6 +185,7 @@
             btnLimpiar_inve.TabIndex = 14;
             btnLimpiar_inve.Text = "Limpiar";
             btnLimpiar_inve.UseVisualStyleBackColor = true;
+            btnLimpiar_inve.Click += btnLimpiar_inve_Click;
             // 
             // btnEliminar_inve
             // 
@@ -150,6 +195,7 @@
             btnEliminar_inve.TabIndex = 13;
             btnEliminar_inve.Text = "Eliminar";
             btnEliminar_inve.UseVisualStyleBackColor = true;
+            btnEliminar_inve.Click += btnEliminar_inve_Click;
             // 
             // btnEditar_inve
             // 
@@ -159,6 +205,7 @@
             btnEditar_inve.TabIndex = 12;
             btnEditar_inve.Text = "Editar";
             btnEditar_inve.UseVisualStyleBackColor = true;
+            btnEditar_inve.Click += btnEditar_inve_Click;
             // 
             // btnGuardar_inve
             // 
@@ -168,6 +215,7 @@
             btnGuardar_inve.TabIndex = 11;
             btnGuardar_inve.Text = "Guardar";
             btnGuardar_inve.UseVisualStyleBackColor = true;
+            btnGuardar_inve.Click += btnGuardar_inve_Click;
             // 
             // btnNuevo_inve
             // 
@@ -177,6 +225,7 @@
             btnNuevo_inve.TabIndex = 10;
             btnNuevo_inve.Text = "Nuevo";
             btnNuevo_inve.UseVisualStyleBackColor = true;
+            btnNuevo_inve.Click += btnNuevo_inve_Click;
             // 
             // label5
             // 
@@ -260,48 +309,6 @@
             txtNombre_inve.Size = new Size(171, 27);
             txtNombre_inve.TabIndex = 0;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "Categoria";
-            Categoria.MinimumWidth = 6;
-            Categoria.Name = "Categoria";
-            Categoria.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.MinimumWidth = 6;
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            // 
             // Control_inventario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -311,6 +318,7 @@
             Controls.Add(groupBox1);
             Name = "Control_inventario";
             Text = "Control_inventario";
+            Load += Control_inventario_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInventario).EndInit();
