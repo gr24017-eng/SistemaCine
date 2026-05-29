@@ -65,7 +65,7 @@ namespace Mini_Proyecto_Cine
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            new Confiteria().Show();
+            new Control_inventario().Show();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

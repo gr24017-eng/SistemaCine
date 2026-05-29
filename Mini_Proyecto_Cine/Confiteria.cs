@@ -24,16 +24,20 @@ namespace Mini_Proyecto_Cine
         {
             InitializeComponent();
             this.subtotalBoletos = subtotalBoletos;
+
         }
 
         private void Confiteria_Load(object sender, EventArgs e)
         {
-            // Columna Cantidad editable
+            // Permitir editar solo la columna Cantidad
+            dgvProductos.ReadOnly = false;
+            dgvProductos.Columns["Producto"].ReadOnly = true;
+            dgvProductos.Columns["Precio"].ReadOnly = true;
+            dgvProductos.Columns["Stock"].ReadOnly = true;
+            dgvProductos.Columns["Cantidad"].ReadOnly = false; // ← esta sí se puede editar
             dgvProductos.EditMode = DataGridViewEditMode.EditOnEnter;
 
-            // Mostrar boletos en el resumen
             lblBoletos.Text = "$" + subtotalBoletos.ToString("N2");
-
             CargarProductos();
             ActualizarResumen();
         }
@@ -142,7 +146,7 @@ namespace Mini_Proyecto_Cine
                 int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value ?? 0);
                 if (cantidad <= 0) continue;
 
-                string nombre = fila.Cells["Nombre"].Value?.ToString();
+                string nombre = fila.Cells["Producto"].Value?.ToString();
                 using (var con = Conexion.ObtenerConexion())
                 {
                     con.Open();
