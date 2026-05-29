@@ -263,8 +263,8 @@ namespace Mini_Proyecto_Cine
 
                             // 1. Insertar venta
                             string sqlVenta = @"INSERT INTO ventas 
-                                (id_usuario, id_funcion, subtotal, iva, total)
-                                VALUES (@idu, @idf, @sub, @iva, @tot);
+                                (id_usuario, id_funcion, subtotal, iva, total, cantidad_boletos, total_confiteria)
+                                VALUES (@idu, @idf, @sub, @iva, @tot, @boletos, @confit);
                                 SELECT LAST_INSERT_ID();";
                             int idVenta = 0;
                             using (var cmd = new MySqlCommand(sqlVenta, con, trans))
@@ -274,6 +274,8 @@ namespace Mini_Proyecto_Cine
                                 cmd.Parameters.AddWithValue("@sub", subtotal);
                                 cmd.Parameters.AddWithValue("@iva", iva);
                                 cmd.Parameters.AddWithValue("@tot", total);
+                                cmd.Parameters.AddWithValue("@boletos", asientosElegidos.Count);
+                                cmd.Parameters.AddWithValue("@confit", 0); 
                                 idVenta = Convert.ToInt32(cmd.ExecuteScalar());
                             }
 
@@ -335,12 +337,34 @@ namespace Mini_Proyecto_Cine
 
                             trans.Commit();
 
+                            // Abrir confitería (opcional para el cliente)
+                            decimal subBoletos = asientosElegidos.Count * precioFuncion;
+                            Confiteria confiteria = new Confiteria(subBoletos);
+                            confiteria.ShowDialog(); // No importa si cancela, igual abre comprobante
+
+                            // Actualizar total_confiteria si hubo compra en confitería
+                            if (confiteria.TotalConfiteria > 0)
+                            {
+                                using (var con2 = Conexion.ObtenerConexion())
+                                {
+                                    con2.Open();
+                                    string sqlUpConfit = "UPDATE ventas SET total_confiteria=@tc WHERE id_venta=@iv";
+                                    using (var cmd = new MySqlCommand(sqlUpConfit, con2))
+                                    {
+                                        cmd.Parameters.AddWithValue("@tc", confiteria.TotalConfiteria);
+                                        cmd.Parameters.AddWithValue("@iv", idVenta);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+
+                            // Comprobante con totales combinados
                             string peliculaComp = (cmbPelicula_ventas.SelectedItem as ComboItem)?.Texto ?? "";
                             string funcionComp = (cmbFuncion_ventas.SelectedItem as ComboItem)?.Texto ?? "";
                             string salaComp = lblSala_ventas.Text;
-                            decimal subComp = asientosElegidos.Count * precioFuncion;
-                            decimal ivaComp = subComp * 0.13m;
-                            decimal totalComp = subComp + ivaComp;
+                            decimal subComp = subBoletos;
+                            decimal ivaComp = (subBoletos + confiteria.TotalConfiteria) * 0.13m;
+                            decimal totalComp = subBoletos + confiteria.TotalConfiteria + ivaComp;
 
                             Comprobante comp = new Comprobante(
                                 peliculaComp, funcionComp, salaComp,
@@ -348,6 +372,7 @@ namespace Mini_Proyecto_Cine
                             comp.ShowDialog();
 
                             LimpiarFormulario();
+
                         }
                         catch (Exception ex)
                         {

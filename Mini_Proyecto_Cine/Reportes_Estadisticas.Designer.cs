@@ -28,98 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            groupBox1 = new GroupBox();
-            label1 = new Label();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            label3 = new Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            grbSelecion_reporte = new GroupBox();
             btnGenerar = new Button();
-            groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            groupBox4 = new GroupBox();
+            label3 = new Label();
+            dtpDesde = new DateTimePicker();
+            dtpHasta = new DateTimePicker();
+            label2 = new Label();
+            cmbSelecion_repor = new ComboBox();
+            label1 = new Label();
+            grbVentas = new GroupBox();
+            chartVentas_dia = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            grbDetalle = new GroupBox();
+            dgvDetalle_reporte = new DataGridView();
             Fecha = new DataGridViewTextBoxColumn();
             Boletos_Vendidos = new DataGridViewTextBoxColumn();
             Venta_Boletos = new DataGridViewTextBoxColumn();
             Ventas_Cofiteria = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).BeginInit();
+            chartMas_vistas = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            grbPelis_masvistas = new GroupBox();
+            panel1 = new Panel();
+            groupBox4 = new GroupBox();
+            lblSubMes = new Label();
+            lblVentasMes = new Label();
+            label14 = new Label();
+            groupBox3 = new GroupBox();
+            label10 = new Label();
+            lblConfitHoy = new Label();
+            label11 = new Label();
+            groupBox2 = new GroupBox();
+            label16 = new Label();
+            lblBoletosHoy = new Label();
+            label8 = new Label();
+            groupBox1 = new GroupBox();
+            label15 = new Label();
+            lblVentasHoy = new Label();
+            label4 = new Label();
+            grbSelecion_reporte.SuspendLayout();
+            grbVentas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartVentas_dia).BeginInit();
+            grbDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle_reporte).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartMas_vistas).BeginInit();
+            grbPelis_masvistas.SuspendLayout();
+            panel1.SuspendLayout();
             groupBox4.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // grbSelecion_reporte
             // 
-            groupBox1.Controls.Add(btnGenerar);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(9, 15);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1041, 75);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            grbSelecion_reporte.Controls.Add(btnGenerar);
+            grbSelecion_reporte.Controls.Add(label3);
+            grbSelecion_reporte.Controls.Add(dtpDesde);
+            grbSelecion_reporte.Controls.Add(dtpHasta);
+            grbSelecion_reporte.Controls.Add(label2);
+            grbSelecion_reporte.Controls.Add(cmbSelecion_repor);
+            grbSelecion_reporte.Controls.Add(label1);
+            grbSelecion_reporte.Location = new Point(9, 15);
+            grbSelecion_reporte.Name = "grbSelecion_reporte";
+            grbSelecion_reporte.Size = new Size(1041, 75);
+            grbSelecion_reporte.TabIndex = 0;
+            grbSelecion_reporte.TabStop = false;
             // 
-            // label1
+            // btnGenerar
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(9, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(145, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Selecione el reporte:";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(160, 31);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(126, 28);
-            comboBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(319, 34);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Desde:";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(379, 34);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(124, 27);
-            dateTimePicker1.TabIndex = 3;
-            dateTimePicker1.Value = new DateTime(2026, 5, 24, 0, 0, 0, 0);
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(617, 34);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(124, 27);
-            dateTimePicker2.TabIndex = 5;
-            dateTimePicker2.Value = new DateTime(2026, 5, 24, 0, 0, 0, 0);
+            btnGenerar.Location = new Point(843, 30);
+            btnGenerar.Name = "btnGenerar";
+            btnGenerar.Size = new Size(94, 29);
+            btnGenerar.TabIndex = 6;
+            btnGenerar.Text = "Generar";
+            btnGenerar.UseVisualStyleBackColor = true;
+            btnGenerar.Click += btnGenerar_Click;
             // 
             // label3
             // 
@@ -130,99 +118,101 @@
             label3.TabIndex = 4;
             label3.Text = "Hasta:";
             // 
-            // btnGenerar
+            // dtpDesde
             // 
-            btnGenerar.Location = new Point(843, 30);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(94, 29);
-            btnGenerar.TabIndex = 6;
-            btnGenerar.Text = "Generar";
-            btnGenerar.UseVisualStyleBackColor = true;
+            dtpDesde.Format = DateTimePickerFormat.Short;
+            dtpDesde.Location = new Point(379, 34);
+            dtpDesde.Name = "dtpDesde";
+            dtpDesde.Size = new Size(124, 27);
+            dtpDesde.TabIndex = 3;
+            dtpDesde.Value = new DateTime(2026, 5, 24, 0, 0, 0, 0);
             // 
-            // groupBox2
+            // dtpHasta
             // 
-            groupBox2.Controls.Add(chart1);
-            groupBox2.Location = new Point(9, 251);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(535, 226);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Ventas por dia";
+            dtpHasta.Format = DateTimePickerFormat.Short;
+            dtpHasta.Location = new Point(617, 34);
+            dtpHasta.Name = "dtpHasta";
+            dtpHasta.Size = new Size(124, 27);
+            dtpHasta.TabIndex = 5;
+            dtpHasta.Value = new DateTime(2026, 5, 24, 0, 0, 0, 0);
             // 
-            // groupBox3
+            // label2
             // 
-            groupBox3.Controls.Add(dataGridView1);
-            groupBox3.Location = new Point(9, 495);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1041, 228);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Detalle del reporte";
+            label2.AutoSize = true;
+            label2.Location = new Point(319, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Desde:";
             // 
-            // dataGridView1
+            // cmbSelecion_repor
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Fecha, Boletos_Vendidos, Venta_Boletos, Ventas_Cofiteria, Total });
-            dataGridView1.Location = new Point(6, 26);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1026, 196);
-            dataGridView1.TabIndex = 0;
+            cmbSelecion_repor.FormattingEnabled = true;
+            cmbSelecion_repor.Location = new Point(160, 31);
+            cmbSelecion_repor.Name = "cmbSelecion_repor";
+            cmbSelecion_repor.Size = new Size(126, 28);
+            cmbSelecion_repor.TabIndex = 1;
             // 
-            // chart1
+            // label1
             // 
-            chartArea3.AxisX.MajorGrid.LineColor = Color.Gray;
-            chartArea3.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.AxisY.MajorGrid.LineColor = Color.Gray;
-            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            chart1.Legends.Add(legend3);
-            chart1.Location = new Point(7, 21);
-            chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chart1.Series.Add(series3);
-            chart1.Size = new Size(522, 199);
-            chart1.TabIndex = 0;
-            chart1.Text = "chart1";
+            label1.AutoSize = true;
+            label1.Location = new Point(9, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Selecione el reporte:";
             // 
-            // chart2
+            // grbVentas
             // 
-            chartArea4.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea4.AxisX.MajorGrid.Enabled = false;
-            chartArea4.AxisX.MajorGrid.LineColor = Color.Gray;
-            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea4.AxisY.MajorGrid.LineColor = Color.Gray;
-            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea4.Name = "ChartArea1";
-            chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            chart2.Legends.Add(legend4);
-            chart2.Location = new Point(12, 21);
-            chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            chart2.Series.Add(series4);
-            chart2.Size = new Size(463, 199);
-            chart2.TabIndex = 1;
-            chart2.Text = "chart2";
+            grbVentas.Controls.Add(chartVentas_dia);
+            grbVentas.Location = new Point(9, 251);
+            grbVentas.Name = "grbVentas";
+            grbVentas.Size = new Size(535, 226);
+            grbVentas.TabIndex = 1;
+            grbVentas.TabStop = false;
+            grbVentas.Text = "Ventas por dia";
             // 
-            // groupBox4
+            // chartVentas_dia
             // 
-            groupBox4.Controls.Add(chart2);
-            groupBox4.Location = new Point(566, 251);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(484, 226);
-            groupBox4.TabIndex = 3;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Peliculas mas vistas";
+            chartArea1.AxisX.MajorGrid.LineColor = Color.Gray;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MajorGrid.LineColor = Color.Gray;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.Name = "ChartArea1";
+            chartVentas_dia.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartVentas_dia.Legends.Add(legend1);
+            chartVentas_dia.Location = new Point(7, 21);
+            chartVentas_dia.Name = "chartVentas_dia";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartVentas_dia.Series.Add(series1);
+            chartVentas_dia.Size = new Size(522, 199);
+            chartVentas_dia.TabIndex = 0;
+            chartVentas_dia.Text = "chart1";
+            // 
+            // grbDetalle
+            // 
+            grbDetalle.Controls.Add(dgvDetalle_reporte);
+            grbDetalle.Location = new Point(9, 483);
+            grbDetalle.Name = "grbDetalle";
+            grbDetalle.Size = new Size(1041, 240);
+            grbDetalle.TabIndex = 2;
+            grbDetalle.TabStop = false;
+            grbDetalle.Text = "Detalle del reporte";
+            // 
+            // dgvDetalle_reporte
+            // 
+            dgvDetalle_reporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDetalle_reporte.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDetalle_reporte.Columns.AddRange(new DataGridViewColumn[] { Fecha, Boletos_Vendidos, Venta_Boletos, Ventas_Cofiteria, Total });
+            dgvDetalle_reporte.Location = new Point(6, 26);
+            dgvDetalle_reporte.Name = "dgvDetalle_reporte";
+            dgvDetalle_reporte.RowHeadersWidth = 51;
+            dgvDetalle_reporte.Size = new Size(1026, 208);
+            dgvDetalle_reporte.TabIndex = 0;
             // 
             // Fecha
             // 
@@ -259,48 +249,272 @@
             Total.Name = "Total";
             Total.ReadOnly = true;
             // 
+            // chartMas_vistas
+            // 
+            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorGrid.LineColor = Color.Gray;
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisY.MajorGrid.LineColor = Color.Gray;
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.Name = "ChartArea1";
+            chartMas_vistas.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chartMas_vistas.Legends.Add(legend2);
+            chartMas_vistas.Location = new Point(12, 21);
+            chartMas_vistas.Name = "chartMas_vistas";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartMas_vistas.Series.Add(series2);
+            chartMas_vistas.Size = new Size(463, 199);
+            chartMas_vistas.TabIndex = 1;
+            chartMas_vistas.Text = "chart2";
+            // 
+            // grbPelis_masvistas
+            // 
+            grbPelis_masvistas.Controls.Add(chartMas_vistas);
+            grbPelis_masvistas.Location = new Point(566, 251);
+            grbPelis_masvistas.Name = "grbPelis_masvistas";
+            grbPelis_masvistas.Size = new Size(484, 226);
+            grbPelis_masvistas.TabIndex = 3;
+            grbPelis_masvistas.TabStop = false;
+            grbPelis_masvistas.Text = "Peliculas mas vistas";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(groupBox4);
+            panel1.Controls.Add(groupBox3);
+            panel1.Controls.Add(groupBox2);
+            panel1.Controls.Add(groupBox1);
+            panel1.Location = new Point(9, 96);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1041, 160);
+            panel1.TabIndex = 4;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(lblSubMes);
+            groupBox4.Controls.Add(lblVentasMes);
+            groupBox4.Controls.Add(label14);
+            groupBox4.Location = new Point(780, 1);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(250, 154);
+            groupBox4.TabIndex = 4;
+            groupBox4.TabStop = false;
+            // 
+            // lblSubMes
+            // 
+            lblSubMes.Location = new Point(50, 116);
+            lblSubMes.Name = "lblSubMes";
+            lblSubMes.Size = new Size(150, 25);
+            lblSubMes.TabIndex = 4;
+            lblSubMes.Text = "Mes";
+            lblSubMes.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblVentasMes
+            // 
+            lblVentasMes.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblVentasMes.Location = new Point(50, 67);
+            lblVentasMes.Name = "lblVentasMes";
+            lblVentasMes.Size = new Size(150, 25);
+            lblVentasMes.TabIndex = 3;
+            lblVentasMes.Text = "$0.00";
+            lblVentasMes.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            label14.Location = new Point(50, 23);
+            label14.Name = "label14";
+            label14.Size = new Size(150, 25);
+            label14.TabIndex = 0;
+            label14.Text = "Ventas Totales (Mes)";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(lblConfitHoy);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Location = new Point(524, 1);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(250, 154);
+            groupBox3.TabIndex = 4;
+            groupBox3.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.Location = new Point(60, 116);
+            label10.Name = "label10";
+            label10.Size = new Size(130, 25);
+            label10.TabIndex = 4;
+            label10.Text = "Hoy";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblConfitHoy
+            // 
+            lblConfitHoy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblConfitHoy.Location = new Point(60, 67);
+            lblConfitHoy.Name = "lblConfitHoy";
+            lblConfitHoy.Size = new Size(130, 25);
+            lblConfitHoy.TabIndex = 3;
+            lblConfitHoy.Text = "$0.00";
+            lblConfitHoy.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            label11.Location = new Point(60, 23);
+            label11.Name = "label11";
+            label11.Size = new Size(130, 25);
+            label11.TabIndex = 0;
+            label11.Text = "Ingresos Cofiteria";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label16);
+            groupBox2.Controls.Add(lblBoletosHoy);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Location = new Point(268, 1);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(250, 154);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            // 
+            // label16
+            // 
+            label16.Location = new Point(60, 116);
+            label16.Name = "label16";
+            label16.Size = new Size(130, 25);
+            label16.TabIndex = 6;
+            label16.Text = "Hoy";
+            label16.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblBoletosHoy
+            // 
+            lblBoletosHoy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblBoletosHoy.Location = new Point(60, 67);
+            lblBoletosHoy.Name = "lblBoletosHoy";
+            lblBoletosHoy.Size = new Size(130, 25);
+            lblBoletosHoy.TabIndex = 3;
+            lblBoletosHoy.Text = "0";
+            lblBoletosHoy.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.Location = new Point(60, 23);
+            label8.Name = "label8";
+            label8.Size = new Size(130, 25);
+            label8.TabIndex = 0;
+            label8.Text = "Boletos Vendidos";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(lblVentasHoy);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Location = new Point(12, 1);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(250, 154);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.Location = new Point(60, 116);
+            label15.Name = "label15";
+            label15.Size = new Size(120, 25);
+            label15.TabIndex = 5;
+            label15.Text = "Hoy";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblVentasHoy
+            // 
+            lblVentasHoy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblVentasHoy.Location = new Point(60, 67);
+            lblVentasHoy.Name = "lblVentasHoy";
+            lblVentasHoy.Size = new Size(120, 25);
+            lblVentasHoy.TabIndex = 3;
+            lblVentasHoy.Text = "$0.00";
+            lblVentasHoy.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            label4.Location = new Point(60, 23);
+            label4.Name = "label4";
+            label4.Size = new Size(120, 25);
+            label4.TabIndex = 0;
+            label4.Text = "Ventas Totales";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Reportes_Estadisticas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1062, 735);
-            Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
+            Controls.Add(panel1);
+            Controls.Add(grbPelis_masvistas);
+            Controls.Add(grbDetalle);
+            Controls.Add(grbVentas);
+            Controls.Add(grbSelecion_reporte);
             Name = "Reportes_Estadisticas";
             Text = "Reportes_Estadisticas";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart2).EndInit();
+            Load += Reportes_Estadisticas_Load;
+            grbSelecion_reporte.ResumeLayout(false);
+            grbSelecion_reporte.PerformLayout();
+            grbVentas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartVentas_dia).EndInit();
+            grbDetalle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDetalle_reporte).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartMas_vistas).EndInit();
+            grbPelis_masvistas.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private DateTimePicker dateTimePicker1;
+        private GroupBox grbSelecion_reporte;
+        private DateTimePicker dtpDesde;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox cmbSelecion_repor;
         private Label label1;
         private Label label3;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpHasta;
         private Button btnGenerar;
-        private GroupBox groupBox2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private GroupBox groupBox3;
-        private DataGridView dataGridView1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private GroupBox groupBox4;
+        private GroupBox grbVentas;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartVentas_dia;
+        private GroupBox grbDetalle;
+        private DataGridView dgvDetalle_reporte;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMas_vistas;
+        private GroupBox grbPelis_masvistas;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Boletos_Vendidos;
         private DataGridViewTextBoxColumn Venta_Boletos;
         private DataGridViewTextBoxColumn Ventas_Cofiteria;
         private DataGridViewTextBoxColumn Total;
+        private Panel panel1;
+        private GroupBox groupBox1;
+        private Label label4;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private Label lblConfitHoy;
+        private Label label11;
+        private Label lblBoletosHoy;
+        private Label label8;
+        private Label lblVentasHoy;
+        private GroupBox groupBox4;
+        private Label lblSubMes;
+        private Label lblVentasMes;
+        private Label label14;
+        private Label label10;
+        private Label label16;
+        private Label label15;
     }
 }

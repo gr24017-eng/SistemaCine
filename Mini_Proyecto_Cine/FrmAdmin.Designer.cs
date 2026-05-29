@@ -95,7 +95,7 @@
             btnCerrar.TabIndex = 9;
             btnCerrar.Text = "Cerrar Sesión";
             btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click_1;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // btnSalas
             // 
@@ -105,7 +105,7 @@
             btnSalas.TabIndex = 8;
             btnSalas.Text = "Salas";
             btnSalas.UseVisualStyleBackColor = true;
-            btnSalas.Click += btnSalas_Click_1;
+            btnSalas.Click += btnSalas_Click;
             // 
             // btnUsuarios
             // 
@@ -115,7 +115,7 @@
             btnUsuarios.TabIndex = 7;
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.UseVisualStyleBackColor = true;
-            btnUsuarios.Click += btnUsuarios_Click_1;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // btnReportes
             // 
@@ -125,7 +125,7 @@
             btnReportes.TabIndex = 6;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = true;
-            btnReportes.Click += btnReportes_Click_1;
+            btnReportes.Click += btnReportes_Click;
             // 
             // btnInventario
             // 
@@ -135,7 +135,7 @@
             btnInventario.TabIndex = 5;
             btnInventario.Text = "Inventario";
             btnInventario.UseVisualStyleBackColor = true;
-            btnInventario.Click += btnInventario_Click_1;
+            btnInventario.Click += btnInventario_Click;
             // 
             // btnVentas
             // 
@@ -145,7 +145,7 @@
             btnVentas.TabIndex = 4;
             btnVentas.Text = "Ventas";
             btnVentas.UseVisualStyleBackColor = true;
-            btnVentas.Click += btnVentas_Click_1;
+            btnVentas.Click += btnVentas_Click;
             // 
             // btnFunciones
             // 
@@ -155,7 +155,7 @@
             btnFunciones.TabIndex = 3;
             btnFunciones.Text = "Funciones";
             btnFunciones.UseVisualStyleBackColor = true;
-            btnFunciones.Click += btnFunciones_Click_1;
+            btnFunciones.Click += btnFunciones_Click;
             // 
             // btnPeliculas
             // 
@@ -165,7 +165,7 @@
             btnPeliculas.TabIndex = 2;
             btnPeliculas.Text = "Peliculas";
             btnPeliculas.UseVisualStyleBackColor = true;
-            btnPeliculas.Click += btnPeliculas_Click_1;
+            btnPeliculas.Click += btnPeliculas_Click;
             // 
             // btnInicio
             // 
@@ -175,7 +175,7 @@
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = true;
-            btnInicio.Click += btnInicio_Click_1;
+            btnInicio.Click += btnInicio_Click;
             // 
             // label1
             // 

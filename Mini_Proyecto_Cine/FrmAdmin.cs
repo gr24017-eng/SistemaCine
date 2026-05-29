@@ -93,54 +93,5 @@ namespace Mini_Proyecto_Cine
             new FrmLogin().Show();
             this.Hide();
         }
-
-        private void btnPeliculas_Click_1(object sender, EventArgs e)
-        {
-            new Peliculas().Show();
-        }
-
-        private void btnFunciones_Click_1(object sender, EventArgs e)
-        {
-            new Funciones().Show();
-        }
-
-        private void btnVentas_Click_1(object sender, EventArgs e)
-        {
-
-
-            new frm_Ventas().Show();
-        }
-
-        private void btnInventario_Click_1(object sender, EventArgs e)
-        {
-
-            new Confiteria().Show();
-        }
-
-        private void btnUsuarios_Click_1(object sender, EventArgs e)
-        {
-            new Usuarios().Show();
-        }
-
-        private void btnReportes_Click_1(object sender, EventArgs e)
-        {
-            new Reportes_Estadisticas().Show();
-        }
-
-        private void btnSalas_Click_1(object sender, EventArgs e)
-        {
-            new Gestion_salas().Show();
-        }
-
-        private void btnCerrar_Click_1(object sender, EventArgs e)
-        {
-            new FrmLogin().Show();
-            this.Hide();
-        }
-
-        private void btnInicio_Click_1(object sender, EventArgs e)
-        {
-            CargarFunciones();
-        }
     }
 }

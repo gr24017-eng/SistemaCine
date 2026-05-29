@@ -23,7 +23,7 @@ namespace Mini_Proyecto_Cine
             lblSala.Text = sala;
             lblAsientos.Text = string.Join(", ", asientos);
             lblBoletos.Text = asientos.Count + " boleto(s) — $" + subtotal.ToString("N2");
-            lblCofiteria.Text = "$0.00";
+            lblCofiteria.Text = "$" + (total - subtotal - iva).ToString("N2");
             lblIva.Text = "$" + iva.ToString("N2");
             lblTotal.Text = "$" + total.ToString("N2");
 
