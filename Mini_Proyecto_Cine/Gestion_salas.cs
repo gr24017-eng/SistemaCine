@@ -52,7 +52,7 @@ namespace Mini_Proyecto_Cine
                 using (var con = Conexion.ObtenerConexion())
                 {
                     con.Open();
-                    string sql = "SELECT id_sala, nombre, capacidad, estado FROM salas ORDER BY id_sala";
+                    string sql = "SELECT id_sala, nombre, capacidad, descripcion, estado FROM salas ORDER BY id_sala";
                     using (var cmd = new MySqlCommand(sql, con))
                     using (var dr = cmd.ExecuteReader())
                         while (dr.Read())
@@ -60,7 +60,7 @@ namespace Mini_Proyecto_Cine
                                 dr["id_sala"],
                                 dr["nombre"],
                                 dr["capacidad"],
-                                "",           // descripcion no está en BD, se deja vacío
+                                dr["descripcion"],  // ← antes decía ""
                                 dr["estado"]
                             );
                 }
@@ -125,14 +125,13 @@ namespace Mini_Proyecto_Cine
                 using (var con = Conexion.ObtenerConexion())
                 {
                     con.Open();
-                    // Solo se puede editar nombre y estado, NO la capacidad
-                    string sql = @"UPDATE salas 
-                                   SET nombre=@n, estado=@e 
-                                   WHERE id_sala=@id";
+                    // CAMBIARLO POR ESTO:
+                    string sql = @"UPDATE salas SET nombre=@n, estado=@e, descripcion=@d WHERE id_sala=@id";
                     using (var cmd = new MySqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@n", txtNum_sala_salas.Text.Trim());
                         cmd.Parameters.AddWithValue("@e", cmbEstado_salas.Text);
+                        cmd.Parameters.AddWithValue("@d", txtDescripcion_salas.Text.Trim());
                         cmd.Parameters.AddWithValue("@id", idSalaSeleccionada);
                         cmd.ExecuteNonQuery();
                     }

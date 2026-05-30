@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            txtNombre = new TextBox();
-            txtUsuario = new TextBox();
-            txtContraseña = new TextBox();
-            cmbRol = new ComboBox();
-            cmbEstado = new ComboBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            btnNuevo = new Button();
-            btnGuardar = new Button();
-            btnEditar = new Button();
-            btnEliminar = new Button();
-            btnLimpiar = new Button();
             pbUsuarios = new PictureBox();
-            dgvUsuarios = new DataGridView();
+            btnLimpiar = new Button();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnGuardar = new Button();
+            btnNuevo = new Button();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            cmbEstado = new ComboBox();
+            cmbRol = new ComboBox();
+            txtContraseña = new TextBox();
+            txtUsuario = new TextBox();
+            txtNombre = new TextBox();
+            groupBox2 = new GroupBox();
             label6 = new Label();
             txtBuscar = new TextBox();
+            dgvUsuarios = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Usuario = new DataGridViewTextBoxColumn();
             Rol = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUsuarios).BeginInit();
+            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -85,6 +85,146 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del usuario";
             // 
+            // pbUsuarios
+            // 
+            pbUsuarios.Location = new Point(611, 26);
+            pbUsuarios.Name = "pbUsuarios";
+            pbUsuarios.Size = new Size(269, 235);
+            pbUsuarios.TabIndex = 15;
+            pbUsuarios.TabStop = false;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(807, 347);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(94, 29);
+            btnLimpiar.TabIndex = 14;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(629, 347);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.TabIndex = 13;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(457, 347);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(94, 29);
+            btnEditar.TabIndex = 12;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(283, 347);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.TabIndex = 11;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.Location = new Point(96, 347);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(94, 29);
+            btnNuevo.TabIndex = 10;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(96, 284);
+            label5.Name = "label5";
+            label5.Size = new Size(57, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Estado:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(96, 224);
+            label4.Name = "label4";
+            label4.Size = new Size(34, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Rol:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(96, 160);
+            label3.Name = "label3";
+            label3.Size = new Size(86, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Contraseña:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(96, 101);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Usuario:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(96, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Nombre:";
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(191, 281);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(171, 28);
+            cmbEstado.TabIndex = 4;
+            // 
+            // cmbRol
+            // 
+            cmbRol.FormattingEnabled = true;
+            cmbRol.Location = new Point(191, 221);
+            cmbRol.Name = "cmbRol";
+            cmbRol.Size = new Size(171, 28);
+            cmbRol.TabIndex = 3;
+            // 
+            // txtContraseña
+            // 
+            txtContraseña.Location = new Point(191, 157);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(171, 27);
+            txtContraseña.TabIndex = 2;
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(191, 98);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(171, 27);
+            txtUsuario.TabIndex = 1;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(191, 38);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(171, 27);
+            txtNombre.TabIndex = 0;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(label6);
@@ -96,152 +236,6 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Listado de usuarios";
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(191, 38);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(171, 27);
-            txtNombre.TabIndex = 0;
-            // 
-            // txtUsuario
-            // 
-            txtUsuario.Location = new Point(191, 98);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(171, 27);
-            txtUsuario.TabIndex = 1;
-            // 
-            // txtContraseña
-            // 
-            txtContraseña.Location = new Point(191, 157);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(171, 27);
-            txtContraseña.TabIndex = 2;
-            // 
-            // cmbRol
-            // 
-            cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(191, 221);
-            cmbRol.Name = "cmbRol";
-            cmbRol.Size = new Size(171, 28);
-            cmbRol.TabIndex = 3;
-            // 
-            // cmbEstado
-            // 
-            cmbEstado.FormattingEnabled = true;
-            cmbEstado.Location = new Point(191, 281);
-            cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(171, 28);
-            cmbEstado.TabIndex = 4;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(96, 41);
-            label1.Name = "label1";
-            label1.Size = new Size(67, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Nombre:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(96, 101);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 20);
-            label2.TabIndex = 6;
-            label2.Text = "Usuario:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(96, 160);
-            label3.Name = "label3";
-            label3.Size = new Size(86, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Contraseña:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(96, 224);
-            label4.Name = "label4";
-            label4.Size = new Size(34, 20);
-            label4.TabIndex = 8;
-            label4.Text = "Rol:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(96, 284);
-            label5.Name = "label5";
-            label5.Size = new Size(57, 20);
-            label5.TabIndex = 9;
-            label5.Text = "Estado:";
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.Location = new Point(111, 347);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(94, 29);
-            btnNuevo.TabIndex = 10;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(283, 347);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
-            btnGuardar.TabIndex = 11;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(457, 347);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
-            btnEditar.TabIndex = 12;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(629, 347);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
-            btnEliminar.TabIndex = 13;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(807, 347);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(94, 29);
-            btnLimpiar.TabIndex = 14;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // pbUsuarios
-            // 
-            pbUsuarios.Location = new Point(611, 26);
-            pbUsuarios.Name = "pbUsuarios";
-            pbUsuarios.Size = new Size(269, 235);
-            pbUsuarios.TabIndex = 15;
-            pbUsuarios.TabStop = false;
-            // 
-            // dgvUsuarios
-            // 
-            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Usuario, Rol, Estado });
-            dgvUsuarios.Location = new Point(6, 46);
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.RowHeadersWidth = 51;
-            dgvUsuarios.Size = new Size(1027, 259);
-            dgvUsuarios.TabIndex = 0;
             // 
             // label6
             // 
@@ -258,6 +252,19 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(133, 27);
             txtBuscar.TabIndex = 16;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // dgvUsuarios
+            // 
+            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Usuario, Rol, Estado });
+            dgvUsuarios.Location = new Point(6, 46);
+            dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.RowHeadersWidth = 51;
+            dgvUsuarios.Size = new Size(1027, 259);
+            dgvUsuarios.TabIndex = 0;
+            dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
             // ID
             // 
@@ -305,9 +312,9 @@
             Text = "Usuarios";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUsuarios).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbUsuarios).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
         }
