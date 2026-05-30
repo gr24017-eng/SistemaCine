@@ -9,6 +9,10 @@ namespace Mini_Proyecto_Cine
         public Funciones()
         {
             InitializeComponent();
+
+            // AGREGAR ESTAS DOS LÍNEAS ANTES DE TODO
+            dtpFecha.MinDate = DateTime.Parse("01/01/2000");
+            dtpFecha.MaxDate = DateTime.Parse("31/12/2099");
             CargarPeliculasCombo();
             CargarSalasCombo();
             CargarFunciones();
@@ -21,7 +25,7 @@ namespace Mini_Proyecto_Cine
             try
             {
                 con.Open();
-                string sql = "SELECT id_pelicula, nombre FROM peliculas WHERE estado='En cartelera'";
+                string sql = "SELECT id_pelicula, nombre FROM peliculas WHERE estado='En Cartelera'";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, con);
                 System.Data.DataTable dt = new System.Data.DataTable();
                 da.Fill(dt);
@@ -83,8 +87,10 @@ namespace Mini_Proyecto_Cine
             txtHora.Clear();
             txtPrecio.Clear();
             dtpFecha.Value = DateTime.Today;
-            cmbPelicula.SelectedIndex = -1;
-            cmbSala.SelectedIndex = -1;
+
+            if (cmbPelicula.Items.Count > 0) cmbPelicula.SelectedIndex = 0;
+            if (cmbSala.Items.Count > 0) cmbSala.SelectedIndex = 0;
+
             idSeleccionado = 0;
         }
 
@@ -215,6 +221,11 @@ namespace Mini_Proyecto_Cine
             idSeleccionado = Convert.ToInt32(row.Cells[0].Value);
             txtHora.Text = row.Cells[4].Value?.ToString();
             txtPrecio.Text = row.Cells[5].Value?.ToString();
+
+            // Seleccionar la fecha desde el grid
+            if (DateTime.TryParse(row.Cells[3].Value?.ToString(), out DateTime fecha))
+                dtpFecha.Value = fecha;
+
             EstadoBotones(false);
         }
 

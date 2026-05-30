@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace Mini_Proyecto_Cine
         {
             InitializeComponent();
 
+            // Conectar eventos aquí, no dentro de los métodos de carga
+            cmbPelicula_ventas.SelectedIndexChanged += cmbPelicula_ventas_SelectedIndexChanged;
+            cmbFuncion_ventas.SelectedIndexChanged += cmbFuncion_ventas_SelectedIndexChanged;
         }
         private void btnSeleccionarAsientos_Click(object sender, EventArgs e)
         {
@@ -88,7 +92,6 @@ namespace Mini_Proyecto_Cine
                 cmbPelicula_ventas.DisplayMember = "Texto";
                 cmbPelicula_ventas.ValueMember = "Id";
                 cmbPelicula_ventas.SelectedIndex = 0;
-                cmbPelicula_ventas.SelectedIndexChanged += cmbPelicula_ventas_SelectedIndexChanged;
             }
             catch (Exception ex)
             {
@@ -111,6 +114,8 @@ namespace Mini_Proyecto_Cine
             try
             {
                 cmbFuncion_ventas.Items.Clear();
+                cmbFuncion_ventas.DisplayMember = "Texto";
+                cmbFuncion_ventas.ValueMember = "Id";
                 cmbFuncion_ventas.Items.Add(new ComboItem { Id = 0, Texto = "-- Seleccione --" });
 
                 using (var con = Conexion.ObtenerConexion())
@@ -119,7 +124,7 @@ namespace Mini_Proyecto_Cine
                     string sql = @"SELECT f.id_funcion, s.nombre AS sala, f.fecha, f.hora, f.precio
                                    FROM funciones f
                                    INNER JOIN salas s ON f.id_sala = s.id_sala
-                                   WHERE f.id_pelicula = @id AND f.fecha >= CURDATE()";
+                                   WHERE f.id_pelicula = @id";
                     using (var cmd = new MySqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@id", idPelicula);
@@ -135,10 +140,8 @@ namespace Mini_Proyecto_Cine
                             }
                     }
                 }
-                cmbFuncion_ventas.DisplayMember = "Texto";
-                cmbFuncion_ventas.ValueMember = "Id";
+                
                 cmbFuncion_ventas.SelectedIndex = 0;
-                cmbFuncion_ventas.SelectedIndexChanged += cmbFuncion_ventas_SelectedIndexChanged;
             }
             catch (Exception ex)
             {
