@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             panel1 = new Panel();
+            lnkRecuperar = new LinkLabel();
             pictureBox1 = new PictureBox();
             btnIngresar = new Button();
             txtContra = new TextBox();
@@ -37,7 +38,6 @@
             label3 = new Label();
             lblContraseña = new Label();
             lblUsuario = new Label();
-            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -45,7 +45,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lnkRecuperar);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnIngresar);
             panel1.Controls.Add(txtContra);
@@ -58,6 +58,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(755, 481);
             panel1.TabIndex = 0;
+            // 
+            // lnkRecuperar
+            // 
+            lnkRecuperar.AutoSize = true;
+            lnkRecuperar.Location = new Point(279, 325);
+            lnkRecuperar.Name = "lnkRecuperar";
+            lnkRecuperar.Size = new Size(178, 20);
+            lnkRecuperar.TabIndex = 7;
+            lnkRecuperar.TabStop = true;
+            lnkRecuperar.Text = "¿Olvidaste tu contraseña?";
+            lnkRecuperar.LinkClicked += lnkRecuperar_LinkClicked;
             // 
             // pictureBox1
             // 
@@ -84,10 +95,10 @@
             // 
             // txtContra
             // 
-            txtContra.Location = new Point(279, 281);
+            txtContra.Location = new Point(279, 263);
             txtContra.Margin = new Padding(3, 4, 3, 4);
             txtContra.Name = "txtContra";
-            txtContra.Size = new Size(181, 27);
+            txtContra.Size = new Size(219, 27);
             txtContra.TabIndex = 4;
             txtContra.UseSystemPasswordChar = true;
             // 
@@ -111,7 +122,7 @@
             // lblContraseña
             // 
             lblContraseña.AutoSize = true;
-            lblContraseña.Location = new Point(179, 285);
+            lblContraseña.Location = new Point(179, 267);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(83, 20);
             lblContraseña.TabIndex = 1;
@@ -125,15 +136,6 @@
             lblUsuario.Size = new Size(59, 20);
             lblUsuario.TabIndex = 0;
             lblUsuario.Text = "Usuario";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(215, 175);
-            label1.Name = "label1";
-            label1.Size = new Size(332, 20);
-            label1.TabIndex = 7;
-            label1.Text = "tenemos que agregar lo de recuperar contrasena";
             // 
             // FrmLogin
             // 
@@ -160,6 +162,6 @@
         private Label label3;
         private Label lblContraseña;
         private Label lblUsuario;
-        private Label label1;
+        private LinkLabel lnkRecuperar;  // ← era Label label
     }
 }
