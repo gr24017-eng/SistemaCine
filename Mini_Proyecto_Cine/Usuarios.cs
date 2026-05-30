@@ -13,16 +13,16 @@ namespace Mini_Proyecto_Cine
             InitializeComponent();
             cmbRol.Items.AddRange(new[] { "superadmin", "administrador", "ventas", "cliente" });
             cmbEstado.Items.AddRange(new[] { "activo", "inactivo" });
-            ModoLectura(); // campos bloqueados al inicio
+            ModoLectura();
             CargarUsuarios();
         }
 
-        // ── MODO LECTURA: campos bloqueados ──────────────────────────────
         private void ModoLectura()
         {
             txtNombre.ReadOnly = true;
             txtUsuario.ReadOnly = true;
             txtContraseña.ReadOnly = true;
+            txtCorreo.ReadOnly = true;
             cmbRol.Enabled = false;
             cmbEstado.Enabled = false;
 
@@ -33,12 +33,12 @@ namespace Mini_Proyecto_Cine
             btnLimpiar.Enabled = true;
         }
 
-        // ── MODO EDICIÓN: campos habilitados ─────────────────────────────
         private void ModoEdicion()
         {
             txtNombre.ReadOnly = false;
             txtUsuario.ReadOnly = false;
             txtContraseña.ReadOnly = false;
+            txtCorreo.ReadOnly = false;
             cmbRol.Enabled = true;
             cmbEstado.Enabled = true;
 
@@ -51,11 +51,7 @@ namespace Mini_Proyecto_Cine
 
         private string Hashear(string clave)
         {
-            using SHA256 sha = SHA256.Create();
-            byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(clave));
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in bytes) sb.Append(b.ToString("x2"));
-            return sb.ToString();
+            return Utilidades.HashSHA256(clave);
         }
 
         private void CargarUsuarios(string filtro = "")
@@ -78,17 +74,36 @@ namespace Mini_Proyecto_Cine
             finally { con.Close(); }
         }
 
+        private void CargarCorreoUsuario(int id)
+        {
+            try
+            {
+                using (var con = Conexion.ObtenerConexion())
+                {
+                    con.Open();
+                    string sql = "SELECT correo FROM usuarios WHERE id_usuario=@id";
+                    using (var cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        var dato = cmd.ExecuteScalar();
+                        txtCorreo.Text = dato?.ToString() ?? "";
+                    }
+                }
+            }
+            catch { txtCorreo.Clear(); }
+        }
+
         private void LimpiarCampos()
         {
             txtNombre.Clear();
             txtUsuario.Clear();
             txtContraseña.Clear();
+            txtCorreo.Clear();
             cmbRol.SelectedIndex = -1;
             cmbEstado.SelectedIndex = -1;
             idSeleccionado = 0;
         }
 
-        // ── BOTONES ───────────────────────────────────────────────────────
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -126,7 +141,7 @@ namespace Mini_Proyecto_Cine
                 con.Open();
                 MySqlCommand cmd;
 
-                if (idSeleccionado == 0) // INSERT
+                if (idSeleccionado == 0)
                 {
                     if (string.IsNullOrWhiteSpace(txtContraseña.Text))
                     {
@@ -135,14 +150,14 @@ namespace Mini_Proyecto_Cine
                         return;
                     }
                     cmd = new MySqlCommand(
-                        "INSERT INTO usuarios (nombre,usuario,clave,rol,estado) VALUES (@n,@u,@c,@r,@e)", con);
+                        "INSERT INTO usuarios (nombre,usuario,clave,rol,estado,correo) VALUES (@n,@u,@c,@r,@e,@correo)", con);
                     cmd.Parameters.AddWithValue("@c", Hashear(txtContraseña.Text));
                 }
-                else // UPDATE
+                else
                 {
                     string sql = string.IsNullOrWhiteSpace(txtContraseña.Text)
-                        ? "UPDATE usuarios SET nombre=@n,usuario=@u,rol=@r,estado=@e WHERE id_usuario=@id"
-                        : "UPDATE usuarios SET nombre=@n,usuario=@u,clave=@c,rol=@r,estado=@e WHERE id_usuario=@id";
+                        ? "UPDATE usuarios SET nombre=@n,usuario=@u,rol=@r,estado=@e,correo=@correo WHERE id_usuario=@id"
+                        : "UPDATE usuarios SET nombre=@n,usuario=@u,clave=@c,rol=@r,estado=@e,correo=@correo WHERE id_usuario=@id";
                     cmd = new MySqlCommand(sql, con);
                     if (!string.IsNullOrWhiteSpace(txtContraseña.Text))
                         cmd.Parameters.AddWithValue("@c", Hashear(txtContraseña.Text));
@@ -153,6 +168,7 @@ namespace Mini_Proyecto_Cine
                 cmd.Parameters.AddWithValue("@u", txtUsuario.Text.Trim());
                 cmd.Parameters.AddWithValue("@r", cmbRol.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@e", cmbEstado.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Usuario guardado correctamente.", "Éxito",
@@ -196,7 +212,6 @@ namespace Mini_Proyecto_Cine
             ModoLectura();
         }
 
-        // ── CLICK EN FILA DEL GRID ────────────────────────────────────────
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -207,7 +222,8 @@ namespace Mini_Proyecto_Cine
             cmbRol.SelectedItem = row.Cells[3].Value?.ToString();
             cmbEstado.SelectedItem = row.Cells[4].Value?.ToString();
             txtContraseña.Clear();
-            ModoLectura(); // refresca botones con idSeleccionado ya seteado
+            CargarCorreoUsuario(idSeleccionado);
+            ModoLectura();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)

@@ -54,6 +54,8 @@
             Usuario = new DataGridViewTextBoxColumn();
             Rol = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            label7 = new Label();
+            txtCorreo = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUsuarios).BeginInit();
             groupBox2.SuspendLayout();
@@ -62,6 +64,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtCorreo);
             groupBox1.Controls.Add(pbUsuarios);
             groupBox1.Controls.Add(btnLimpiar);
             groupBox1.Controls.Add(btnEliminar);
@@ -155,7 +159,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(96, 224);
+            label4.Location = new Point(96, 236);
             label4.Name = "label4";
             label4.Size = new Size(34, 20);
             label4.TabIndex = 8;
@@ -164,7 +168,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(96, 160);
+            label3.Location = new Point(96, 138);
             label3.Name = "label3";
             label3.Size = new Size(86, 20);
             label3.TabIndex = 7;
@@ -173,7 +177,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(96, 101);
+            label2.Location = new Point(96, 89);
             label2.Name = "label2";
             label2.Size = new Size(62, 20);
             label2.TabIndex = 6;
@@ -199,21 +203,21 @@
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(191, 221);
+            cmbRol.Location = new Point(191, 233);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(171, 28);
             cmbRol.TabIndex = 3;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(191, 157);
+            txtContraseña.Location = new Point(191, 135);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(171, 27);
             txtContraseña.TabIndex = 2;
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(191, 98);
+            txtUsuario.Location = new Point(191, 86);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(171, 27);
             txtUsuario.TabIndex = 1;
@@ -301,6 +305,22 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(96, 181);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 20);
+            label7.TabIndex = 17;
+            label7.Text = "Correo:";
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(191, 178);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(171, 27);
+            txtCorreo.TabIndex = 16;
+            // 
             // Usuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -347,5 +367,7 @@
         private DataGridViewTextBoxColumn Usuario;
         private DataGridViewTextBoxColumn Rol;
         private DataGridViewTextBoxColumn Estado;
+        private Label label7;
+        private TextBox txtCorreo;
     }
 }

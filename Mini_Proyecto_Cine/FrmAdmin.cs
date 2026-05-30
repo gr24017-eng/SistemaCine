@@ -23,7 +23,7 @@ namespace Mini_Proyecto_Cine
             btnInventario.Visible = esAdmin || tieneVentas;
             btnVentas.Visible = tieneVentas;
 
-            label3.Text = "Bienvenido — Rol: " + _rol.ToUpper();
+            lblBienve.Text = "Bienvenido — Rol: " + _rol.ToUpper();
         }
 
         private void CargarFunciones()
