@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mini_Proyecto_Cine
@@ -19,6 +14,7 @@ namespace Mini_Proyecto_Cine
         Color colorOcupado = Color.FromArgb(180, 180, 180);
         Color colorSeleccionado = Color.FromArgb(128, 128, 255);
         List<string> asientosSeleccionados = new List<string>();
+        List<string> _ocupados = new List<string>();
 
         public FrmAsientos()
         {
@@ -40,6 +36,10 @@ namespace Mini_Proyecto_Cine
                     b.Click += btnAsiento_Click;
                 }
             }
+
+            // Marcar ocupados DESPUÉS de inicializar botones
+            if (_ocupados.Count > 0)
+                MarcarOcupados(_ocupados);
         }
 
         private void btnAsiento_Click(object sender, EventArgs e)
@@ -96,6 +96,7 @@ namespace Mini_Proyecto_Cine
 
         public void MarcarOcupados(List<string> ocupados)
         {
+            _ocupados = ocupados;
             foreach (Control c in p_asientos.Controls)
             {
                 if (c is Button b && ocupados.Contains(b.Text))
@@ -103,6 +104,7 @@ namespace Mini_Proyecto_Cine
                     b.UseVisualStyleBackColor = false;
                     b.BackColor = colorOcupado;
                     b.Tag = "ocupado";
+                    b.Enabled = false;
                 }
             }
         }

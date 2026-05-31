@@ -3,11 +3,13 @@ namespace Mini_Proyecto_Cine
     public partial class FrmAdmin : Form
     {
         private string _rol;
+        private string _usuario;
 
-        public FrmAdmin(string rol)
+        public FrmAdmin(string rol, string nombre)
         {
             InitializeComponent();
             _rol = rol;
+            _usuario = nombre;
             ConfigurarPorRol();
             CargarFunciones();
         }
@@ -16,14 +18,12 @@ namespace Mini_Proyecto_Cine
         {
             bool esAdmin = _rol == "superadmin" || _rol == "administrador";
             bool tieneVentas = _rol == "superadmin" || _rol == "ventas";
-
             btnUsuarios.Visible = esAdmin;
             btnReportes.Visible = esAdmin;
             btnSalas.Visible = esAdmin;
             btnInventario.Visible = esAdmin || tieneVentas;
             btnVentas.Visible = tieneVentas;
-
-            lblBienve.Text = "Bienvenido — Rol: " + _rol.ToUpper();
+            label3.Text = "Bienvenido, " + _usuario;
         }
 
         private void CargarFunciones()
@@ -60,7 +60,7 @@ namespace Mini_Proyecto_Cine
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            new frm_Ventas().Show();
+            new FrmCartelera().Show();
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -92,6 +92,10 @@ namespace Mini_Proyecto_Cine
         {
             new FrmLogin().Show();
             this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
         }
     }
 }

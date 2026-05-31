@@ -28,12 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmCartelera";
+            flpPeliculas = new FlowLayoutPanel();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // flpPeliculas
+            // 
+            flpPeliculas.AutoScroll = true;
+            flpPeliculas.Location = new Point(-3, 46);
+            flpPeliculas.Name = "flpPeliculas";
+            flpPeliculas.Size = new Size(807, 410);
+            flpPeliculas.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(290, -7);
+            label1.Name = "label1";
+            label1.Size = new Size(179, 50);
+            label1.TabIndex = 1;
+            label1.Text = "Cartelera ";
+            // 
+            // FrmCartelera
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 468);
+            Controls.Add(label1);
+            Controls.Add(flpPeliculas);
+            Name = "FrmCartelera";
+            Text = "FrmCartelera";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private FlowLayoutPanel flpPeliculas;
+        private Label label1;
     }
 }

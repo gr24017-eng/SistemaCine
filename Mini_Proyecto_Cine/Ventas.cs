@@ -121,10 +121,18 @@ namespace Mini_Proyecto_Cine
                 using (var con = Conexion.ObtenerConexion())
                 {
                     con.Open();
+
+
                     string sql = @"SELECT f.id_funcion, s.nombre AS sala, f.fecha, f.hora, f.precio
-                                   FROM funciones f
-                                   INNER JOIN salas s ON f.id_sala = s.id_sala
-                                   WHERE f.id_pelicula = @id";
+               FROM funciones f
+               INNER JOIN salas s ON f.id_sala = s.id_sala
+               WHERE f.id_pelicula = @id
+               AND (f.fecha > CURDATE() 
+               OR (f.fecha = CURDATE() AND f.hora > CURTIME()))
+               ORDER BY f.fecha, f.hora";
+
+
+
                     using (var cmd = new MySqlCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@id", idPelicula);
@@ -342,7 +350,7 @@ namespace Mini_Proyecto_Cine
 
                             // Abrir confitería (opcional para el cliente)
                             decimal subBoletos = asientosElegidos.Count * precioFuncion;
-                            Confiteria confiteria = new Confiteria(subBoletos);
+                            Confiteria confiteria = new Confiteria(subBoletos, idVenta);
                             confiteria.ShowDialog(); // No importa si cancela, igual abre comprobante
 
                             // Actualizar total_confiteria si hubo compra en confitería

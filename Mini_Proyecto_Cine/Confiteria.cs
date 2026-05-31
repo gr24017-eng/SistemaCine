@@ -1,48 +1,44 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mini_Proyecto_Cine
 {
     public partial class Confiteria : Form
     {
-        // Recibe el subtotal de boletos desde Ventas
         private decimal subtotalBoletos = 0;
+        private int _idVenta = 0;
 
-        // Para que Ventas pueda leer el total final
         public decimal TotalFinal { get; private set; } = 0;
         public decimal TotalConfiteria { get; private set; } = 0;
 
-        public Confiteria(decimal subtotalBoletos = 0)
+        public Confiteria(decimal subtotalBoletos = 0, int idVenta = 0)
         {
             InitializeComponent();
             this.subtotalBoletos = subtotalBoletos;
-
+            this._idVenta = idVenta;
         }
 
         private void Confiteria_Load(object sender, EventArgs e)
         {
-            // Permitir editar solo la columna Cantidad
             dgvProductos.ReadOnly = false;
             dgvProductos.Columns["Producto"].ReadOnly = true;
             dgvProductos.Columns["Precio"].ReadOnly = true;
             dgvProductos.Columns["Stock"].ReadOnly = true;
-            dgvProductos.Columns["Cantidad"].ReadOnly = false; // ← esta sí se puede editar
+            dgvProductos.Columns["Cantidad"].ReadOnly = false;
             dgvProductos.EditMode = DataGridViewEditMode.EditOnEnter;
+
+            // Ocultar stock si es cliente o ventas
+            if (Sesion.Rol == "cliente" || Sesion.Rol == "ventas")
+                dgvProductos.Columns["Stock"].Visible = false;
 
             lblBoletos.Text = "$" + subtotalBoletos.ToString("N2");
             CargarProductos();
             ActualizarResumen();
         }
 
-        // ── CARGAR PRODUCTOS DESDE BD ─────────────────────────────────────
         private void CargarProductos()
         {
             try
@@ -62,7 +58,7 @@ namespace Mini_Proyecto_Cine
                                 dr["nombre"],
                                 dr["precio"],
                                 dr["stock"],
-                                0  // cantidad inicial en 0
+                                0
                             );
                 }
             }
@@ -75,7 +71,6 @@ namespace Mini_Proyecto_Cine
 
         private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // Solo si editaron la columna Cantidad (índice 3)
             if (e.ColumnIndex != dgvProductos.Columns["Cantidad"].Index) return;
 
             var cell = dgvProductos.Rows[e.RowIndex].Cells["Cantidad"];
@@ -87,7 +82,6 @@ namespace Mini_Proyecto_Cine
                 cantidad = 0;
             }
 
-            // Validar que no supere el stock
             int stock = Convert.ToInt32(stockCell.Value);
             if (cantidad > stock)
             {
@@ -99,7 +93,6 @@ namespace Mini_Proyecto_Cine
             ActualizarResumen();
         }
 
-        // ── ACTUALIZAR RESUMEN ────────────────────────────────────────────
         private void ActualizarResumen()
         {
             decimal totalConfit = 0;
@@ -122,24 +115,12 @@ namespace Mini_Proyecto_Cine
             lblIVA.Text = "$" + iva.ToString("N2");
             lblTotal.Text = "$" + total.ToString("N2");
 
-            // Guardar para que Ventas los lea
             TotalConfiteria = totalConfit;
             TotalFinal = total;
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-
-            // Verificar si hay algo seleccionado
-            bool hayProductos = false;
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                if (fila.IsNewRow) continue;
-                int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value ?? 0);
-                if (cantidad > 0) { hayProductos = true; break; }
-            }
-
-            // Dentro de btnFinalizar_Click, antes de cerrar:
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 if (fila.IsNewRow) continue;
@@ -147,20 +128,40 @@ namespace Mini_Proyecto_Cine
                 if (cantidad <= 0) continue;
 
                 string nombre = fila.Cells["Producto"].Value?.ToString();
+                decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value ?? 0);
+
                 using (var con = Conexion.ObtenerConexion())
                 {
                     con.Open();
-                    string sql = "UPDATE inventario SET stock = stock - @qty WHERE nombre = @nom AND stock >= @qty";
-                    using (var cmd = new MySqlCommand(sql, con))
+
+                    // Descontar stock
+                    string sqlStock = "UPDATE inventario SET stock = stock - @qty WHERE nombre = @nom AND stock >= @qty";
+                    using (var cmd = new MySqlCommand(sqlStock, con))
                     {
                         cmd.Parameters.AddWithValue("@qty", cantidad);
                         cmd.Parameters.AddWithValue("@nom", nombre);
                         cmd.ExecuteNonQuery();
                     }
+
+                    // Guardar ingreso
+                    if (_idVenta > 0)
+                    {
+                        string sqlDetalle = @"INSERT INTO detalle_confiteria 
+                            (id_venta, nombre_producto, cantidad, precio, subtotal)
+                            VALUES (@iv, @nom, @qty, @precio, @sub)";
+                        using (var cmd = new MySqlCommand(sqlDetalle, con))
+                        {
+                            cmd.Parameters.AddWithValue("@iv", _idVenta);
+                            cmd.Parameters.AddWithValue("@nom", nombre);
+                            cmd.Parameters.AddWithValue("@qty", cantidad);
+                            cmd.Parameters.AddWithValue("@precio", precio);
+                            cmd.Parameters.AddWithValue("@sub", precio * cantidad);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
                 }
             }
 
-            // Es opcional agregar confitería
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

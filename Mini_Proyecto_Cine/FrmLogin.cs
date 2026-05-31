@@ -54,7 +54,14 @@ namespace Mini_Proyecto_Cine
                 dr.Close();
 
                 this.Hide();
-                new FrmAdmin(Sesion.Rol).Show();
+                if (Sesion.Rol == "cliente")
+                {
+                    new FrmCartelera().Show();
+                }
+                else
+                {
+                    new FrmAdmin(Sesion.Rol, Sesion.Nombre).Show();
+                }
             }
             catch (Exception ex)
             {
